@@ -4,6 +4,7 @@ import org.loandb.persistence.types.ApplicantRole;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -16,14 +17,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Applicant extends BaseEntity {
   @Column(name = "SSN", nullable = false)
   private String ssn;
+
   @Column(name = "BIRTH_DATE", nullable = false)
-  private String dateOfBirth;
+  @Temporal(TemporalType.DATE)
+  private Date dateOfBirth;
+
   @Column(name = "FIRST_NAME", nullable = false)
   private String firstName;
+
   @Column(name = "LAST_NAME", nullable = false)
   private String lastName;
+
   @Column(name = "MIDDLE_NAME")
   private String middleName;
+
   @Column(name = "APPLICANT_ROLE", nullable = false)
   @Enumerated
   private ApplicantRole applicantRole;
@@ -49,11 +56,11 @@ public class Applicant extends BaseEntity {
     this.ssn = ssn;
   }
 
-  public String getDateOfBirth() {
+  public Date getDateOfBirth() {
     return dateOfBirth;
   }
 
-  public void setDateOfBirth(String dateOfBirth) {
+  public void setDateOfBirth(Date dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
@@ -117,7 +124,7 @@ public class Applicant extends BaseEntity {
   public String toString() {
     return "Applicant{" +
       "ssn='" + ssn + '\'' +
-      ", dateOfBirth='" + dateOfBirth + '\'' +
+      ", dateOfBirth=" + dateOfBirth +
       ", firstName='" + firstName + '\'' +
       ", lastName='" + lastName + '\'' +
       ", middleName='" + middleName + '\'' +
