@@ -3,8 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.loandb</groupId>
-    <artifactId>loandb</artifactId>
+    <artifactId>loandb-base</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <name>loandb : ROOT</name>
     <url>http://code.google.com/p/loandb/</url>
     <description>
         LoanDB is a loan originations system reference implementation
@@ -25,8 +26,7 @@
 
     <scm>
         <connection>scm:svn:https://loandb.googlecode.com/svn/trunk</connection>
-        <developerConnection>scm:svn:https://loandb.googlecode.com/svn/trunk</developerConnection>
-        <url>http://code.google.com/p/loandb/source/browse/#svn/trunk</url>
+        <developerConnection>scm:svn:https://loandb.googlecode.com/svn/trunk</developerConnection>        
     </scm>
 
     <issueManagement>
@@ -64,6 +64,10 @@
         <hibernate.envers.version>3.4.0-SNAPSHOT</hibernate.envers.version>
         <slf4j.version>1.5.6</slf4j.version>
     </properties>
+    
+    <modules>
+	<module>loandb-core</module>
+    </modules>    
 
 
     <dependencies>
