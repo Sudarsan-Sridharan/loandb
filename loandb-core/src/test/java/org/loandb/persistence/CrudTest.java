@@ -8,6 +8,11 @@ import org.loandb.persistence.types.ApplicantRole;
 import org.loandb.persistence.types.LoanType;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
  *
@@ -75,7 +80,12 @@ public class CrudTest extends AbstractTest {
 
     Applicant applicant1 = new Applicant();
     applicant1.setApplicantRole(ApplicantRole.PRIMARY);
-    applicant1.setDateOfBirth("07/11/1960");
+    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    try {
+      applicant1.setDateOfBirth(dateFormat.parse("07/11/1960"));
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
     applicant1.setSsn("000-00-0001");
     applicant1.setFirstName("KEN");
     applicant1.setLastName("CUSTOMER");
@@ -83,7 +93,11 @@ public class CrudTest extends AbstractTest {
 
     Applicant applicant2Primary = new Applicant();
     applicant2Primary.setApplicantRole(ApplicantRole.PRIMARY);
-    applicant2Primary.setDateOfBirth("08/11/1960");
+    try {
+      applicant2Primary.setDateOfBirth(dateFormat.parse("08/11/1960"));
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
     applicant2Primary.setSsn("000-00-0002");
     applicant2Primary.setFirstName("ALAN");
     applicant2Primary.setLastName("APPLICANT");
@@ -91,7 +105,11 @@ public class CrudTest extends AbstractTest {
 
     Applicant applicant2Secondary = new Applicant();
     applicant2Secondary.setApplicantRole(ApplicantRole.SECONDARY);
-    applicant2Secondary.setDateOfBirth("09/11/1965");
+    try {
+      applicant2Secondary.setDateOfBirth(dateFormat.parse("09/11/1965"));
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
     applicant2Secondary.setSsn("000-00-0003");
     applicant2Secondary.setFirstName("EMILY");
     applicant2Secondary.setLastName("APPLICANT");
@@ -99,7 +117,11 @@ public class CrudTest extends AbstractTest {
 
     Applicant applicant3 = new Applicant();
     applicant3.setApplicantRole(ApplicantRole.PRIMARY);
-    applicant3.setDateOfBirth("10/11/1970");
+    try {
+      applicant3.setDateOfBirth(dateFormat.parse("10/11/1970"));
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
     applicant3.setSsn("000-00-0004");
     applicant3.setFirstName("WILL");
     applicant3.setLastName("SMITH");
@@ -107,6 +129,7 @@ public class CrudTest extends AbstractTest {
 
     Application application1 = new Application();
     application1.addApplicant(applicant1);
+    application1.setSubmitDate(new Date());
     application1.setLoanAmount(120000.00);
     application1.setLoanType(LoanType.FIXED);
     application1.setPropertyAddress(propertyAddress1);
@@ -115,6 +138,7 @@ public class CrudTest extends AbstractTest {
     Application application2 = new Application();
     application2.addApplicant(applicant2Primary);
     application2.addApplicant(applicant2Secondary);
+    application2.setSubmitDate(new Date());
     application2.setLoanAmount(110000.00);
     application2.setLoanType(LoanType.ADJUSTABLE);
     application2.setPropertyAddress(propertyAddress2);
@@ -123,6 +147,7 @@ public class CrudTest extends AbstractTest {
 
     Application application3 = new Application();
     application3.addApplicant(applicant3);
+    application3.setSubmitDate(new Date());
     application3.setLoanAmount(90000.00);
     application3.setLoanType(LoanType.FIXED);
     application3.setPropertyAddress(propertyAddress3);

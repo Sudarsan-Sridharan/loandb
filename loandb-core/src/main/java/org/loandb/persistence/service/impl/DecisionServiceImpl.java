@@ -6,6 +6,7 @@ import org.loandb.persistence.model.Application;
 import org.loandb.persistence.model.Decision;
 import org.loandb.persistence.service.DecisionService;
 import org.loandb.persistence.types.DecisionType;
+import org.loandb.persistence.types.DeclineReason;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +56,7 @@ public class DecisionServiceImpl implements DecisionService {
 
     if (declinedBorrowers.size() > 0) {
       decision.setDecision(DecisionType.DECLINE);
+      decision.setDeclineReason(DeclineReason.FICO_SCORE.getReason());
     }
 
     if (referredBorrowers.size() > 0) {

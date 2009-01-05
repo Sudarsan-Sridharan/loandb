@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Date;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -22,6 +23,10 @@ public class Application extends BaseEntity {
   @Column(name = "OBJ_VERSION")
   @XmlTransient
   private int version;
+
+  @Column(name = "SUBMIT_DATE", nullable = false)
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date submitDate;
 
   @Column(name = "LOAN_AMT", nullable = false)
   private Double loanAmount;
@@ -92,10 +97,20 @@ public class Application extends BaseEntity {
     return version;
   }
 
+  public Date getSubmitDate() {
+    return submitDate;
+  }
+
+  public void setSubmitDate(Date submitDate) {
+    this.submitDate = submitDate;
+  }
+
   @Override
   public String toString() {
     return "Application{" +
-      "loanAmount=" + loanAmount +
+      "version=" + version +
+      ", submitDate=" + submitDate +
+      ", loanAmount=" + loanAmount +
       ", loanType=" + loanType +
       ", propertyAddress=" + propertyAddress +
       ", applicants=" + applicants +

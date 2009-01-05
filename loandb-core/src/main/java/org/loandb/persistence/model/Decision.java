@@ -27,6 +27,9 @@ public class Decision extends BaseEntity {
   @OneToOne(mappedBy = "decision")
   private Application application;
 
+  @Column(name = "DECLINE_REASON")
+  private String declineReason;
+
   public DecisionType getDecision() {
     return decision;
   }
@@ -49,6 +52,14 @@ public class Decision extends BaseEntity {
 
   public void setDecisionedDate(Date decisionedDate) {
     this.decisionedDate = decisionedDate;
+  }
+
+  public String getDeclineReason() {
+    return declineReason;
+  }
+
+  public void setDeclineReason(String declineReason) {
+    this.declineReason = declineReason;
   }
 
   @Override
