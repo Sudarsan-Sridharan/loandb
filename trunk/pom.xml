@@ -24,8 +24,8 @@
     </licenses>
 
     <scm>
-        <connection>scm:svn:https://loandb.googlecode.com/svn/trunk/loandb</connection>
-        <developerConnection>scm:svn:https://loandb.googlecode.com/svn/trunk/loandb</developerConnection>
+        <connection>scm:svn:https://loandb.googlecode.com/svn/trunk</connection>
+        <developerConnection>scm:svn:https://loandb.googlecode.com/svn/trunk</developerConnection>
         <url>http://code.google.com/p/loandb/source/browse/#svn/trunk</url>
     </scm>
 
@@ -227,12 +227,6 @@
             <version>0.9.1.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>99.0-does-not-exist</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -291,12 +285,6 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository>
-        <repository>
-            <id>Version99</id>
-            <name>Version 99 Does Not Exist Maven repository</name>
-            <layout>default</layout>
-            <url>http://no-commons-logging.zapto.org/mvn2</url>
         </repository>
     </repositories>
 
