@@ -17,6 +17,7 @@ import java.util.Date;
  */
 @Entity
 @XmlRootElement
+@org.hibernate.annotations.Cache(usage = org.hibernate.annotations.CacheConcurrencyStrategy.READ_WRITE)
 public class Application extends BaseEntity {
 
   @Version
