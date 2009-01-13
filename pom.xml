@@ -26,7 +26,7 @@
 
     <scm>
         <connection>scm:svn:https://loandb.googlecode.com/svn/trunk</connection>
-        <developerConnection>scm:svn:https://loandb.googlecode.com/svn/trunk</developerConnection>        
+        <developerConnection>scm:svn:https://loandb.googlecode.com/svn/trunk</developerConnection>
     </scm>
 
     <issueManagement>
@@ -64,10 +64,10 @@
         <hibernate.envers.version>3.4.0-SNAPSHOT</hibernate.envers.version>
         <slf4j.version>1.5.6</slf4j.version>
     </properties>
-    
+
     <modules>
-	<module>loandb-core</module>
-    </modules>    
+        <module>loandb-core</module>
+    </modules>
 
 
     <dependencies>
@@ -133,6 +133,24 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.entitymanager.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.core.version}</version>
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>ehcache</artifactId>-->
+                    <!--<groupId>net.sf.ehcache</groupId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>net.sf.ehcache</groupId>-->
+            <!--<artifactId>ehcache</artifactId>-->
+            <!--<version>1.5.0</version>-->
+        <!--</dependency>-->
 
         <!--<dependency>-->
         <!--<groupId>org.hibernate</groupId>-->
@@ -229,6 +247,13 @@
             <groupId>c3p0</groupId>
             <artifactId>c3p0</artifactId>
             <version>0.9.1.2</version>
+        </dependency>
+
+        <!-- DBCP DEPENDENCY-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.2</version>
         </dependency>
 
     </dependencies>
