@@ -5,6 +5,8 @@ import org.loandb.persistence.service.CreditService;
 import org.loandb.persistence.types.CreditBureauType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -23,8 +25,10 @@ import java.util.Random;
 @Service
 @Transactional
 public class CreditServiceImpl implements CreditService {
+  private final static Logger logger = LoggerFactory.getLogger(CreditServiceImpl.class);
 
   public CreditBureauSummary getCredit(Long id) {
+    logger.debug("Getting credit for application id {}", id);
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss.SSS Z");
     java.util.Date date = new java.util.Date();
     String datetime = dateFormat.format(date);
@@ -37,6 +41,7 @@ public class CreditServiceImpl implements CreditService {
       e.printStackTrace();//TODO remove this
     }
     cbr.setCreditScore(getFicoScore(cbr.getCreditBureau()));
+    logger.debug("Credit received for applicant id {} with score : {}", id, cbr.getCreditScore());
     return cbr;
   }
 
