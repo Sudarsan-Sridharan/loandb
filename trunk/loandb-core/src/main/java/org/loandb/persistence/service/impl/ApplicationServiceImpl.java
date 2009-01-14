@@ -24,7 +24,7 @@ import java.util.List;
 @Service
 @Transactional
 public class ApplicationServiceImpl implements ApplicationService {
-  private final static Logger LOGGER = LoggerFactory.getLogger(ApplicationServiceImpl.class);
+  private static final Logger LOG = LoggerFactory.getLogger(ApplicationServiceImpl.class);
 
   @Autowired
   public ApplicationDao applicationDao;
@@ -33,22 +33,22 @@ public class ApplicationServiceImpl implements ApplicationService {
   public ApplicantDao applicantDao;
 
   public Application createApp(Application application) {
-    LOGGER.debug("saving application for loan type " + application.getLoanType());
+    LOG.debug("saving application for loan type " + application.getLoanType());
     return applicationDao.save(application);
   }
 
   public Application updateApp(Application application) {
-    LOGGER.debug("updating application id {} " + application.getId());
+    LOG.debug("updating application id {} " + application.getId());
     return applicationDao.update(application);
   }
 
   public Application getApp(Long id) {
-    LOGGER.debug("retrieving application id {} " + id);
+    LOG.debug("retrieving application id {} " + id);
     return applicationDao.get(id);
   }
 
   public void deleteApp(Long id) {
-    LOGGER.debug("deleting application id {} " + id);
+    LOG.debug("deleting application id {} " + id);
     applicationDao.remove(id);
   }
 
@@ -57,14 +57,14 @@ public class ApplicationServiceImpl implements ApplicationService {
   }
 
   public Applicant saveCreditResponse(Applicant applicant, CreditBureauSummary cbrSummary) {
-    LOGGER.debug("saving credit response for applicant id {} " + applicant.getId());
+    LOG.debug("saving credit response for applicant id {} " + applicant.getId());
     applicant.setCbrSummary(cbrSummary);
     cbrSummary.setApplicant(applicant);
     return applicantDao.update(applicant);
   }
 
   public Application saveDecisionResponse(Application application, Decision decision) {
-    LOGGER.debug("saving decision for application id {} " + application.getId());
+    LOG.debug("saving decision for application id {} " + application.getId());
     application.setDecision(decision);
     decision.setApplication(application);
     return applicationDao.update(application);

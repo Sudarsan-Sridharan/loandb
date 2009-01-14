@@ -29,13 +29,13 @@ import java.util.Set;
 @Service
 @Transactional
 public class DecisionServiceImpl implements DecisionService {
-  private final static Logger logger = LoggerFactory.getLogger(DecisionServiceImpl.class);
+  private static final Logger LOG = LoggerFactory.getLogger(DecisionServiceImpl.class);
 
   @Autowired
   public ApplicationDao applicationDao;
 
   public Decision getRiskDecision(Long id) {
-    logger.debug("Getting decision for application id {}", id);
+    LOG.debug("Getting decision for application id {}", id);
     Application app = applicationDao.get(id);
 
     Decision decision = new Decision();
@@ -80,7 +80,7 @@ public class DecisionServiceImpl implements DecisionService {
     } catch (ParseException e) {
       e.printStackTrace();//TODO: remove this
     }
-    logger.debug("Decision {} for application id {}", id, decision.getDecision());
+    LOG.debug("Decision {} for application id {}", id, decision.getDecision());
     return decision;
   }
 
