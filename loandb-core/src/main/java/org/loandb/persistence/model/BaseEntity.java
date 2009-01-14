@@ -1,9 +1,6 @@
 package org.loandb.persistence.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -13,17 +10,35 @@ import java.io.Serializable;
  * @since Jan 4, 2009
  */
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseEntity implements PrunableEntity, Serializable {
   @Id
   @GeneratedValue
   @Column(name = "PK")
-  public Long id;
+  private Long id;
+
+  @Transient
+  private boolean hydrated;
+
+  @Transient
+  private boolean pruned;
 
   public Long getId() {
     return id;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public boolean isHydrated() {
+    return hydrated;
+  }
+
+  public void setHydrated(boolean hydrated) {
+    this.hydrated = hydrated;
+  }
+
+  public boolean isPruned() {
+    return pruned;
+  }
+
+  public void setPruned(boolean pruned) {
+    this.pruned = pruned;
   }
 }

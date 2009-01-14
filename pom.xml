@@ -5,7 +5,8 @@
     <groupId>org.loandb</groupId>
     <artifactId>loandb-base</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>loandb : ROOT</name>
+    <name>${pom.artifactId}</name>
+    <packaging>pom</packaging>
     <url>http://code.google.com/p/loandb/</url>
     <description>
         LoanDB is a loan originations system reference implementation
@@ -63,12 +64,24 @@
         <hibernate.entitymanager.version>3.4.0.GA</hibernate.entitymanager.version>
         <hibernate.envers.version>3.4.0-SNAPSHOT</hibernate.envers.version>
         <slf4j.version>1.5.6</slf4j.version>
+
+        <!-- Database settings -->
+        <dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>
+        <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
+        <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+        <jdbc.groupId>mysql</jdbc.groupId>
+        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+        <jdbc.version>5.1.6</jdbc.version>
+        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+        <jdbc.url>
+            <![CDATA[jdbc:mysql://localhost/loandb_test?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+        <jdbc.username>root</jdbc.username>
+        <jdbc.password></jdbc.password>
     </properties>
 
     <modules>
         <module>loandb-core</module>
     </modules>
-
 
     <dependencies>
         <!-- CXF DEPENDENCIES -->
@@ -184,7 +197,7 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>0.9.14</version>
-        </dependency>        
+        </dependency>
 
         <!-- SPRING DEPENDENCIES -->
         <dependency>
@@ -271,6 +284,21 @@
                 </configuration>
             </plugin>
             <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                    <wtpversion>1.5</wtpversion>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-idea-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
@@ -279,6 +307,26 @@
                     <dependenciesAsLibraries>true</dependenciesAsLibraries>
                     <useFullNames>false</useFullNames>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                        <configuration>
+                            <aggregate>true</aggregate>
+                            <links>
+                                <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+                                <link>http://java.sun.com/javaee/5/docs/api/</link>
+                            </links>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
 
@@ -291,6 +339,17 @@
     </build>
 
     <repositories>
+        <repository>
+            <id>snapshots.jboss.org</id>
+            <name>JBoss Snapshot Repository</name>
+            <url>http://snapshots.jboss.org/maven2</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>apache.incubating</id>
             <name>Apache Incubating Repository</name>
@@ -307,17 +366,29 @@
             <url>http://people.apache.org/repo/m2-snapshot-repository</url>
         </repository>
         <repository>
-            <id>snapshots.jboss.org</id>
-            <name>JBoss Snapshot Repository</name>
-            <url>http://snapshots.jboss.org/maven2</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
+            <id>Codehaus Snapshots</id>
+            <url>http://snapshots.repository.codehaus.org/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Codehaus Snapshots</id>
+            <url>http://snapshots.repository.codehaus.org</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
     <reporting>
         <plugins>
