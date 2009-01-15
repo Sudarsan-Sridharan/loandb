@@ -78,6 +78,12 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>skiptests</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
         <!-- ================= Database Profiles ================= -->
         <profile>
             <id>derby</id>

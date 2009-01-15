@@ -29,8 +29,8 @@ import javax.persistence.PersistenceUnit;
 @TransactionConfiguration(transactionManager = "transactionManager")
 @TestExecutionListeners({TransactionalTestExecutionListener.class})
 @ContextConfiguration(locations = {"classpath:/spring/spring-config.xml",
-                                   "classpath:/spring/spring-jpa-config.xml",
-                                   "classpath:/spring/spring-resources.xml"})
+  "classpath:/spring/spring-jpa-config.xml",
+  "classpath:/spring/spring-resources.xml"})
 public abstract class AbstractTest extends AbstractTransactionalJUnit4SpringContextTests {
   @PersistenceContext
   protected EntityManager entityManager;

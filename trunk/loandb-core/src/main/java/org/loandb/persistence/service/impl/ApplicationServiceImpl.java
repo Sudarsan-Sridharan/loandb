@@ -7,11 +7,11 @@ import org.loandb.persistence.model.Application;
 import org.loandb.persistence.model.CreditBureauSummary;
 import org.loandb.persistence.model.Decision;
 import org.loandb.persistence.service.ApplicationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
 
 import java.util.List;
 

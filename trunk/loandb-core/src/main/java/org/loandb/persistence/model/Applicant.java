@@ -1,5 +1,6 @@
 package org.loandb.persistence.model;
 
+import org.hibernate.envers.Audited;
 import org.loandb.persistence.types.ApplicantRole;
 
 import javax.persistence.*;
@@ -15,22 +16,27 @@ import java.util.Date;
 @Entity
 @XmlRootElement
 public class Applicant extends BaseEntity {
+  @Audited
   @Column(name = "SSN", nullable = false)
   private String ssn;
 
+  @Audited
   @Column(name = "BIRTH_DATE", nullable = false)
   @Temporal(TemporalType.DATE)
   private Date dateOfBirth;
 
+  @Audited
   @Column(name = "FIRST_NAME", nullable = false)
   private String firstName;
 
+  @Audited
   @Column(name = "LAST_NAME", nullable = false)
   private String lastName;
 
   @Column(name = "MIDDLE_NAME")
   private String middleName;
 
+  @Audited
   @Column(name = "APPLICANT_ROLE", nullable = false)
   @Enumerated
   private ApplicantRole applicantRole;

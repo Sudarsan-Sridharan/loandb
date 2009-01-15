@@ -1,13 +1,14 @@
 package org.loandb.persistence.model;
 
+import org.hibernate.envers.Audited;
 import org.loandb.persistence.types.LoanType;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Date;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -29,9 +30,11 @@ public class Application extends BaseEntity {
   @Temporal(TemporalType.TIMESTAMP)
   private Date submitDate;
 
+  @Audited
   @Column(name = "LOAN_AMT", nullable = false)
   private Double loanAmount;
 
+  @Audited
   @Column(name = "LOAN_TYPE", nullable = false)
   @Enumerated(EnumType.STRING)
   private LoanType loanType;
