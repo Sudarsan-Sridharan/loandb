@@ -8,10 +8,10 @@ import org.loandb.persistence.types.ApplicantRole;
 import org.loandb.persistence.types.LoanType;
 import org.springframework.test.annotation.Rollback;
 
-import java.util.Date;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)

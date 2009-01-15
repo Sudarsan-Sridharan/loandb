@@ -378,9 +378,9 @@ public class EntityPruner {
   /**
    * Helper to the helper that gets the child's parent field.
    *
-   * @param entity the entity containing the child
-   * @param field  the field containing the child
-   * @param childClazz  the class of the child
+   * @param entity     the entity containing the child
+   * @param field      the field containing the child
+   * @param childClazz the class of the child
    */
   private static Field loadChildsParentField(PrunableEntity entity,
                                              Field field,

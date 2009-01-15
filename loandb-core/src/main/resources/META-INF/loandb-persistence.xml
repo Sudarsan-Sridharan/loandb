@@ -3,15 +3,21 @@
 
     <persistence-unit name="loandb" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <!--<properties>-->
-        <!--<property name="hibernate.connection.url" value=""/>-->
-        <!--<property name="hibernate.connection.driver_class" value=""/>-->
-        <!--<property name="hibernate.connection.username" value=""/>-->
-        <!--<property name="hibernate.connection.password" value=""/>-->
-        <!--<property name="hibernate.archive.autodetection" value="class"/>-->
-        <!--<property name="hibernate.show_sql" value="true"/>-->
-        <!--<property name="hibernate.format_sql" value="true"/>-->
-        <!--<property name="hbm2ddl.auto" value="update"/>-->
-        <!--</properties>-->
+        <properties>
+            <property name="hibernate.ejb.event.post-insert"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.post-update"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.post-delete"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.pre-collection-update"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.pre-collection-remove"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.post-collection-recreate"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="org.hibernate.envers.auditTableSuffix"
+                      value="_AUDIT"/>
+        </properties>
     </persistence-unit>
 </persistence>

@@ -1,5 +1,6 @@
 package org.loandb.persistence.model;
 
+import org.hibernate.envers.Audited;
 import org.loandb.persistence.types.AddressType;
 
 import javax.persistence.Column;
@@ -15,6 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @since Jan 4, 2009
  */
 @Entity
+@Audited
 @XmlRootElement
 public class Address extends BaseEntity {
   @Column(name = "ADDRESS_LINE1", nullable = false)

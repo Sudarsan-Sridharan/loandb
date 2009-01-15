@@ -1,48 +1,66 @@
 package org.loandb.persistence;
 
+import org.hibernate.envers.AuditReader;
+import org.hibernate.envers.AuditReaderFactory;
 import org.loandb.persistence.model.Address;
 import org.loandb.persistence.model.Applicant;
 import org.loandb.persistence.model.Application;
 import org.loandb.persistence.types.AddressType;
 import org.loandb.persistence.types.ApplicantRole;
 import org.loandb.persistence.types.LoanType;
-import org.springframework.util.StopWatch;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.EnumSet;
-import java.util.Random;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
  *
  * @author <a href="mailto:aruld@acm.org">Arulazi Dhesiaseelan</a>
- * @since Jan 11, 2009
+ * @since Jan 14, 2009
  */
-public class ApplicationTest extends AbstractSpringTest {
-
+public class ApplicationRevisionTest extends AbstractSpringTest {
   public void testSave() {
-    for (int i = 0; i < 100; i++) {
-      Application application = new Application();
-      application.addApplicant(applicant());
-      application.setSubmitDate(new Date());
-      application.setLoanAmount(150000.00);
-      application.setLoanType(getRandomLoanType());
-      application.setPropertyAddress(propertyAddress());
-      applicationService.createApp(application);
-    }
+    Application application = new Application();
+    application.addApplicant(applicant());
+    application.setSubmitDate(new Date());
+    application.setLoanAmount(150000.00);
+    application.setLoanType(LoanType.ADJUSTABLE);
+    application.setPropertyAddress(propertyAddress());
+    applicationService.createApp(application);
+    assertNotNull(applicationService.getAll().get(0));
   }
 
-  public void testGet() {
-    StopWatch watch = new StopWatch("testApplicationLoad");
-    for (int i = 0; i < 5; i++) {
-      watch.start();
-      assertEquals(100, applicationService.getAll().size());
-      watch.stop();
-      System.out.println("get time : " + watch.getTotalTimeMillis() + "ms.");
-    }
+  public void testUpdateLoanAmount() {
+    Application application = applicationService.getAll().get(0);
+    assertNotNull(application);
+    application.setLoanAmount(200000.00);
+    applicationService.updateApp(application);
+  }
+
+  public void testUpdateLoanType() {
+    Application application = applicationService.getAll().get(0);
+    assertNotNull(application);
+    application.setLoanType(LoanType.FIXED);
+    applicationService.updateApp(application);
+  }
+
+  public void testRevision() {
+    Application application = applicationService.getAll().get(0);
+    assertNotNull(application);
+    AuditReader reader = AuditReaderFactory.get(entityManager);
+    Application application1_rev1 = reader.find(Application.class, application.getId(), 1);
+    assertEquals(150000.00, application1_rev1.getLoanAmount());
+    assertEquals(LoanType.ADJUSTABLE, application1_rev1.getLoanType());
+
+    Application application1_rev2 = reader.find(Application.class, application.getId(), 2);
+    assertEquals(200000.00, application1_rev2.getLoanAmount());
+    assertEquals(LoanType.ADJUSTABLE, application1_rev2.getLoanType());
+
+    Application application1_rev3 = reader.find(Application.class, application.getId(), 3);
+    assertEquals(200000.00, application1_rev3.getLoanAmount());
+    assertEquals(LoanType.FIXED, application1_rev3.getLoanType());
   }
 
   private Applicant applicant() {
@@ -83,12 +101,6 @@ public class ApplicationTest extends AbstractSpringTest {
     propertyAddress.setPostalCode("50265");
     propertyAddress.setStateCode("IA");
     return propertyAddress;
-  }
-
-  private LoanType getRandomLoanType() {
-    Random rnd = new Random();
-    Object[] objs = EnumSet.allOf(LoanType.class).toArray();
-    return (LoanType) objs[rnd.nextInt(objs.length)];
   }
 
 }
