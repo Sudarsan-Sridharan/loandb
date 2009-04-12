@@ -56,8 +56,8 @@
     </developers>
 
     <properties>
-        <cxf.version>2.2-SNAPSHOT</cxf.version>
-        <jersey.version>1.0.1</jersey.version>
+        <cxf.version>2.2</cxf.version>
+        <jersey.version>1.0.2</jersey.version>
         <spring.version>2.5.6</spring.version>
         <hibernate.core.version>3.3.1.GA</hibernate.core.version>
         <hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
@@ -176,6 +176,14 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.1.110</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- JUNIT DEPENDENCY -->
