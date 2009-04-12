@@ -43,7 +43,7 @@ public class Application extends BaseEntity {
   @JoinColumn(name = "PROP_ADDRESS_ID", nullable = false)
   private Address propertyAddress;
 
-  //  @OneToMany(cascade = CascadeType.ALL, mappedBy = "application")
+//    @OneToMany(mappedBy = "application", fetch = FetchType.EAGER)
   @OneToMany(cascade = CascadeType.ALL)
   @JoinColumn(name = "APPLICATION_ID", nullable = false)
   private Set<Applicant> applicants = new HashSet<Applicant>();
@@ -84,9 +84,16 @@ public class Application extends BaseEntity {
     this.applicants = applicants;
   }
 
-  public void addApplicant(Applicant applicant) {
+  public Applicant addApplicant(Applicant applicant) {
+    getApplicants().add(applicant);
     applicant.setApplication(this);
-    applicants.add(applicant);
+    return applicant;
+  }
+
+  public Applicant removeApplicant(Applicant applicant) {
+    getApplicants().remove(applicant);
+    applicant.setApplication(null);
+    return applicant;
   }
 
   public Decision getDecision() {

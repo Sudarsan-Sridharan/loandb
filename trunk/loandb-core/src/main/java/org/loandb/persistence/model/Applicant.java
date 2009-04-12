@@ -48,6 +48,7 @@ public class Applicant extends BaseEntity {
   @ManyToOne
 //  @JoinColumn(name = "APPLICATION_ID", unique=false, nullable=false, insertable=true, updatable=true)
   @JoinColumn(name = "APPLICATION_ID", nullable = false, insertable = false, updatable = false)
+//  @JoinColumn(name = "APPLICATION_ID", referencedColumnName = "PK")
   private Application application;
 
   @OneToOne(cascade = CascadeType.ALL)
