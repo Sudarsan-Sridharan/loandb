@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>loandb-base</artifactId>
+        <groupId>org.loandb</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.loandb</groupId>
+    <artifactId>loandb-cxf</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <dependencies>
+        <!-- CXF DEPENDENCIES -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${cxf.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-jdk14</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <groupId>org.apache.cxf</groupId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>cxf-rt-ws-security</artifactId>
+            <groupId>org.apache.cxf</groupId>
+            <version>${cxf.version}</version>
+        </dependency>        
+    </dependencies>
+</project>
