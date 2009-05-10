@@ -65,6 +65,7 @@
         <hibernate.entitymanager.version>3.4.0.GA</hibernate.entitymanager.version>
         <hibernate.envers.version>3.4.0-SNAPSHOT</hibernate.envers.version>
         <slf4j.version>1.5.6</slf4j.version>
+        <jaxb.version>2.1.11</jaxb.version>
 
         <!-- Database settings -->
         <dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>
@@ -142,7 +143,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.1.110</version>
+            <version>1.1.112</version>
             <scope>test</scope>
         </dependency>
 
