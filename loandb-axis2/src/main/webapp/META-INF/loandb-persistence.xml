@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+    <persistence-unit name="loandb" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>org.loandb.persistence.model.Application</class>
+        <class>org.loandb.persistence.model.Address</class>
+        <class>org.loandb.persistence.model.Applicant</class>
+        <class>org.loandb.persistence.model.CreditBureauSummary</class>
+        <class>org.loandb.persistence.model.Decision</class>
+        <properties>
+            <property name="hibernate.ejb.event.post-insert"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.post-update"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.post-delete"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.pre-collection-update"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.pre-collection-remove"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="hibernate.ejb.event.post-collection-recreate"
+                      value="org.hibernate.envers.event.AuditEventListener"/>
+            <property name="org.hibernate.envers.auditTableSuffix"
+                      value="_AUDIT"/>
+        </properties>
+    </persistence-unit>
+</persistence>

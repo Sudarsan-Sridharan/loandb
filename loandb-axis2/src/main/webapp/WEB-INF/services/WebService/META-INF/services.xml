@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+
+    <service name="ApplicationService">
+        <parameter name="ServiceClass" locked="false">org.loandb.persistence.service.impl.ApplicationServiceImpl</parameter>
+        <parameter name="ServiceObjectSupplier" locked="false">
+            org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+        </parameter>
+        <parameter name="SpringBeanName" locked="false">applicationServiceImpl</parameter>
+        <operation name="getApp">
+            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </operation>
+    </service>
+
+</serviceGroup>

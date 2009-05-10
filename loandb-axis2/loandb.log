@@ -1,0 +1,107 @@
+2009-05-10 10:51:33,848  INFO [ Version.java:15 ] - Hibernate Annotations 3.4.0.GA
+2009-05-10 10:51:33,890  INFO [ Environment.java:543 ] - Hibernate 3.3.1.GA
+2009-05-10 10:51:33,897  INFO [ Environment.java:576 ] - hibernate.properties not found
+2009-05-10 10:51:33,903  INFO [ Environment.java:709 ] - Bytecode provider name : javassist
+2009-05-10 10:51:33,910  INFO [ Environment.java:627 ] - using JDK 1.4 java.sql.Timestamp handling
+2009-05-10 10:51:33,994  INFO [ Version.java:14 ] - Hibernate Commons Annotations 3.1.0.GA
+2009-05-10 10:51:34,007  INFO [ Version.java:16 ] - Hibernate EntityManager 3.4.0.GA
+2009-05-10 10:51:34,034  INFO [ Ejb3Configuration.java:315 ] - Processing PersistenceUnitInfo [
+	name: loandb
+	...]
+2009-05-10 10:51:34,210  INFO [ AnnotationBinder.java:419 ] - Binding entity from annotated class: org.loandb.persistence.model.Application
+2009-05-10 10:51:34,266  INFO [ EntityBinder.java:422 ] - Bind entity org.loandb.persistence.model.Application on table application
+2009-05-10 10:51:34,651  INFO [ AnnotationBinder.java:419 ] - Binding entity from annotated class: org.loandb.persistence.model.Address
+2009-05-10 10:51:34,652  INFO [ EntityBinder.java:422 ] - Bind entity org.loandb.persistence.model.Address on table address
+2009-05-10 10:51:34,662  INFO [ AnnotationBinder.java:419 ] - Binding entity from annotated class: org.loandb.persistence.model.Applicant
+2009-05-10 10:51:34,664  INFO [ EntityBinder.java:422 ] - Bind entity org.loandb.persistence.model.Applicant on table applicant
+2009-05-10 10:51:34,676  INFO [ AnnotationBinder.java:419 ] - Binding entity from annotated class: org.loandb.persistence.model.CreditBureauSummary
+2009-05-10 10:51:34,685  INFO [ EntityBinder.java:422 ] - Bind entity org.loandb.persistence.model.CreditBureauSummary on table credit_bureau_summary
+2009-05-10 10:51:34,690  INFO [ AnnotationBinder.java:419 ] - Binding entity from annotated class: org.loandb.persistence.model.Decision
+2009-05-10 10:51:34,700  INFO [ EntityBinder.java:422 ] - Bind entity org.loandb.persistence.model.Decision on table decision
+2009-05-10 10:51:34,804  INFO [ CollectionBinder.java:650 ] - Mapping collection: org.loandb.persistence.model.Application.applicants -> applicant
+2009-05-10 10:51:34,811  INFO [ AnnotationConfiguration.java:369 ] - Hibernate Validator not found: ignoring
+2009-05-10 10:51:34,842  INFO [ HibernateSearchEventListenerRegister.java:53 ] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+2009-05-10 10:51:34,857  INFO [ ConnectionProviderFactory.java:95 ] - Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2009-05-10 10:51:34,864  INFO [ InjectedDataSourceConnectionProvider.java:37 ] - Using provided datasource
+2009-05-10 10:51:35,357  INFO [ SettingsFactory.java:116 ] - RDBMS: MySQL, version: 5.1.30-community
+2009-05-10 10:51:35,357  INFO [ SettingsFactory.java:117 ] - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.6 ( Revision: ${svn.Revision} )
+2009-05-10 10:51:35,375  INFO [ Dialect.java:175 ] - Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2009-05-10 10:51:35,380  INFO [ TransactionFactoryFactory.java:62 ] - Transaction strategy: org.hibernate.transaction.JDBCTransactionFactory
+2009-05-10 10:51:35,383  INFO [ TransactionManagerLookupFactory.java:80 ] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+2009-05-10 10:51:35,383  INFO [ SettingsFactory.java:170 ] - Automatic flush during beforeCompletion(): disabled
+2009-05-10 10:51:35,384  INFO [ SettingsFactory.java:174 ] - Automatic session close at end of transaction: disabled
+2009-05-10 10:51:35,385  INFO [ SettingsFactory.java:181 ] - JDBC batch size: 15
+2009-05-10 10:51:35,385  INFO [ SettingsFactory.java:184 ] - JDBC batch updates for versioned data: disabled
+2009-05-10 10:51:35,387  INFO [ SettingsFactory.java:189 ] - Scrollable result sets: enabled
+2009-05-10 10:51:35,388  INFO [ SettingsFactory.java:197 ] - JDBC3 getGeneratedKeys(): enabled
+2009-05-10 10:51:35,388  INFO [ SettingsFactory.java:205 ] - Connection release mode: auto
+2009-05-10 10:51:35,390  INFO [ SettingsFactory.java:229 ] - Maximum outer join fetch depth: 2
+2009-05-10 10:51:35,390  INFO [ SettingsFactory.java:232 ] - Default batch fetch size: 1
+2009-05-10 10:51:35,391  INFO [ SettingsFactory.java:236 ] - Generate SQL with comments: disabled
+2009-05-10 10:51:35,392  INFO [ SettingsFactory.java:240 ] - Order SQL updates by primary key: disabled
+2009-05-10 10:51:35,392  INFO [ SettingsFactory.java:244 ] - Order SQL inserts for batching: disabled
+2009-05-10 10:51:35,393  INFO [ SettingsFactory.java:420 ] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+2009-05-10 10:51:35,396  INFO [ ASTQueryTranslatorFactory.java:47 ] - Using ASTQueryTranslatorFactory
+2009-05-10 10:51:35,397  INFO [ SettingsFactory.java:252 ] - Query language substitutions: {}
+2009-05-10 10:51:35,398  INFO [ SettingsFactory.java:257 ] - JPA-QL strict compliance: enabled
+2009-05-10 10:51:35,398  INFO [ SettingsFactory.java:262 ] - Second-level cache: enabled
+2009-05-10 10:51:35,399  INFO [ SettingsFactory.java:266 ] - Query cache: enabled
+2009-05-10 10:51:35,404  INFO [ SettingsFactory.java:405 ] - Cache region factory : org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
+2009-05-10 10:51:35,405  INFO [ RegionFactoryCacheProviderBridge.java:61 ] - Cache provider: org.hibernate.cache.EhCacheProvider
+2009-05-10 10:51:35,409  INFO [ SettingsFactory.java:276 ] - Optimize cache for minimal puts: disabled
+2009-05-10 10:51:35,410  INFO [ SettingsFactory.java:285 ] - Structured second-level cache entries: disabled
+2009-05-10 10:51:35,411  INFO [ SettingsFactory.java:384 ] - Query cache factory: org.hibernate.cache.StandardQueryCacheFactory
+2009-05-10 10:51:35,418  INFO [ SettingsFactory.java:314 ] - Statistics: enabled
+2009-05-10 10:51:35,419  INFO [ SettingsFactory.java:318 ] - Deleted entity synthetic identifier rollback: disabled
+2009-05-10 10:51:35,421  INFO [ SettingsFactory.java:333 ] - Default entity-mode: pojo
+2009-05-10 10:51:35,421  INFO [ SettingsFactory.java:337 ] - Named query checking : enabled
+2009-05-10 10:51:35,819  INFO [ HbmBinder.java:322 ] - Mapping class: org.loandb.persistence.model.Applicant_AUDIT -> applicant_audit
+2009-05-10 10:51:35,828  INFO [ HbmBinder.java:322 ] - Mapping class: org.loandb.persistence.model.Application_AUDIT -> application_audit
+2009-05-10 10:51:35,830  INFO [ HbmBinder.java:322 ] - Mapping class: org.loandb.persistence.model.Address_AUDIT -> address_audit
+2009-05-10 10:51:35,832  INFO [ HbmBinder.java:322 ] - Mapping class: org.hibernate.envers.DefaultRevisionEntity -> revinfo
+2009-05-10 10:51:35,855  INFO [ SessionFactoryImpl.java:187 ] - building session factory
+2009-05-10 10:51:36,392  INFO [ SessionFactoryObjectFactory.java:105 ] - Not binding factory to JNDI, no JNDI name configured
+2009-05-10 10:51:36,402  INFO [ SchemaUpdate.java:155 ] - Running hbm2ddl schema update
+2009-05-10 10:51:36,403  INFO [ SchemaUpdate.java:167 ] - fetching database metadata
+2009-05-10 10:51:36,407  INFO [ SchemaUpdate.java:179 ] - updating schema
+2009-05-10 10:51:36,442  INFO [ TableMetadata.java:62 ] - table found: loandb.address
+2009-05-10 10:51:36,443  INFO [ TableMetadata.java:63 ] - columns: [county, address_type, address_line1, address_line2, state, zip, city, pk]
+2009-05-10 10:51:36,444  INFO [ TableMetadata.java:65 ] - foreign keys: []
+2009-05-10 10:51:36,444  INFO [ TableMetadata.java:66 ] - indexes: [primary]
+2009-05-10 10:51:36,464  INFO [ TableMetadata.java:62 ] - table found: loandb.address_audit
+2009-05-10 10:51:36,465  INFO [ TableMetadata.java:63 ] - columns: [county, address_type, address_line1, address_line2, revtype, state, zip, city, pk, rev]
+2009-05-10 10:51:36,466  INFO [ TableMetadata.java:65 ] - foreign keys: [fke751d3d0df74e053]
+2009-05-10 10:51:36,467  INFO [ TableMetadata.java:66 ] - indexes: [primary, fke751d3d0df74e053]
+2009-05-10 10:51:36,484  INFO [ TableMetadata.java:62 ] - table found: loandb.applicant
+2009-05-10 10:51:36,486  INFO [ TableMetadata.java:63 ] - columns: [ssn, application_id, res_address_id, birth_date, middle_name, last_name, cbr_summary_id, first_name, applicant_role, pk]
+2009-05-10 10:51:36,486  INFO [ TableMetadata.java:65 ] - foreign keys: [fk836d1f025e82988f, fk836d1f02c9cca0c9, fk836d1f02fd21b710]
+2009-05-10 10:51:36,487  INFO [ TableMetadata.java:66 ] - indexes: [fk836d1f025e82988f, primary, fk836d1f02c9cca0c9, fk836d1f02fd21b710]
+2009-05-10 10:51:36,517  INFO [ TableMetadata.java:62 ] - table found: loandb.applicant_audit
+2009-05-10 10:51:36,518  INFO [ TableMetadata.java:63 ] - columns: [ssn, birth_date, revtype, last_name, first_name, applicant_role, pk, rev]
+2009-05-10 10:51:36,519  INFO [ TableMetadata.java:65 ] - foreign keys: [fk7050545edf74e053]
+2009-05-10 10:51:36,520  INFO [ TableMetadata.java:66 ] - indexes: [primary, fk7050545edf74e053]
+2009-05-10 10:51:36,535  INFO [ TableMetadata.java:62 ] - table found: loandb.application
+2009-05-10 10:51:36,536  INFO [ TableMetadata.java:63 ] - columns: [loan_type, decision_id, loan_amt, prop_address_id, obj_version, submit_date, pk]
+2009-05-10 10:51:36,537  INFO [ TableMetadata.java:65 ] - foreign keys: [fk5ca4055074c3ca4, fk5ca40550e88a65ec]
+2009-05-10 10:51:36,538  INFO [ TableMetadata.java:66 ] - indexes: [primary, fk5ca4055074c3ca4, fk5ca40550e88a65ec]
+2009-05-10 10:51:36,552  INFO [ TableMetadata.java:62 ] - table found: loandb.application_audit
+2009-05-10 10:51:36,553  INFO [ TableMetadata.java:63 ] - columns: [loan_type, loan_amt, revtype, pk, rev]
+2009-05-10 10:51:36,554  INFO [ TableMetadata.java:65 ] - foreign keys: [fk68c82cdf74e053]
+2009-05-10 10:51:36,554  INFO [ TableMetadata.java:66 ] - indexes: [primary, fk68c82cdf74e053]
+2009-05-10 10:51:36,566  INFO [ TableMetadata.java:62 ] - table found: loandb.credit_bureau_summary
+2009-05-10 10:51:36,567  INFO [ TableMetadata.java:63 ] - columns: [credit_bureau, req_date, credit_score, pk]
+2009-05-10 10:51:36,568  INFO [ TableMetadata.java:65 ] - foreign keys: []
+2009-05-10 10:51:36,569  INFO [ TableMetadata.java:66 ] - indexes: [primary]
+2009-05-10 10:51:36,582  INFO [ TableMetadata.java:62 ] - table found: loandb.decision
+2009-05-10 10:51:36,583  INFO [ TableMetadata.java:63 ] - columns: [dec_date, decline_reason, dec_type, pk]
+2009-05-10 10:51:36,583  INFO [ TableMetadata.java:65 ] - foreign keys: []
+2009-05-10 10:51:36,584  INFO [ TableMetadata.java:66 ] - indexes: [primary]
+2009-05-10 10:51:36,594  INFO [ TableMetadata.java:62 ] - table found: loandb.revinfo
+2009-05-10 10:51:36,595  INFO [ TableMetadata.java:63 ] - columns: [revtstmp, rev]
+2009-05-10 10:51:36,595  INFO [ TableMetadata.java:65 ] - foreign keys: []
+2009-05-10 10:51:36,596  INFO [ TableMetadata.java:66 ] - indexes: [primary]
+2009-05-10 10:51:36,597  INFO [ SchemaUpdate.java:217 ] - schema update complete
+2009-05-10 10:51:36,600  INFO [ UpdateTimestampsCache.java:57 ] - starting update timestamps cache at region: org.hibernate.cache.UpdateTimestampsCache
+2009-05-10 10:51:36,603  WARN [ EhCacheProvider.java:93 ] - Could not find configuration [org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+2009-05-10 10:51:36,616  INFO [ StandardQueryCache.java:75 ] - starting query cache at region: org.hibernate.cache.StandardQueryCache
+2009-05-10 10:51:36,618  WARN [ EhCacheProvider.java:93 ] - Could not find configuration [org.hibernate.cache.StandardQueryCache]; using defaults.
