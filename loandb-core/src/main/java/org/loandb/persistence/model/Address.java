@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -36,9 +37,11 @@ public class Address extends BaseEntity {
   private String stateCode;
 
   @OneToOne(mappedBy = "residentialAddress")
+  @XmlTransient
   private Applicant applicant;
 
   @OneToOne(mappedBy = "propertyAddress")
+  @XmlTransient
   private Application application;
 
   public String getAddressLine1() {
@@ -111,21 +114,6 @@ public class Address extends BaseEntity {
 
   public void setApplication(Application application) {
     this.application = application;
-  }
-
-  @Override
-  public String toString() {
-    return "Address{" +
-      "addressLine1='" + addressLine1 + '\'' +
-      ", addressLine2='" + addressLine2 + '\'' +
-      ", county='" + county + '\'' +
-      ", addressType=" + addressType +
-      ", city='" + city + '\'' +
-      ", postalCode='" + postalCode + '\'' +
-      ", stateCode='" + stateCode + '\'' +
-      ", applicant=" + applicant +
-      ", application=" + application +
-      '}';
   }
 }
 

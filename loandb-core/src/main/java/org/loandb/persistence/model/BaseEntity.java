@@ -1,6 +1,9 @@
 package org.loandb.persistence.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAccessType;
 import java.io.Serializable;
 
 /**
@@ -10,16 +13,20 @@ import java.io.Serializable;
  * @since Jan 4, 2009
  */
 @MappedSuperclass
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class BaseEntity implements PrunableEntity, Serializable {
   @Id
   @GeneratedValue
   @Column(name = "PK")
+  @XmlTransient
   private Long id;
 
   @Transient
+  @XmlTransient
   private boolean hydrated;
 
   @Transient
+  @XmlTransient
   private boolean pruned;
 
   public Long getId() {

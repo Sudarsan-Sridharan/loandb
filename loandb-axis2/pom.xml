@@ -10,6 +10,7 @@
     <groupId>org.loandb</groupId>
     <artifactId>loandb-axis2</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <name>LoanDB - Axis2 Frontend (SOAP, REST)</name>
     <packaging>war</packaging>
 
     <build>

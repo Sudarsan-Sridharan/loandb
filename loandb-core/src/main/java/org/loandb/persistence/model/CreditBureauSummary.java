@@ -4,6 +4,7 @@ import org.loandb.persistence.types.CreditBureauType;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
 /**
@@ -27,6 +28,7 @@ public class CreditBureauSummary extends BaseEntity {
   private Date requestedDate;
 
   @OneToOne(mappedBy = "cbrSummary")
+  @XmlTransient
   private Applicant applicant;
 
   public Integer getCreditScore() {
@@ -59,15 +61,5 @@ public class CreditBureauSummary extends BaseEntity {
 
   public void setApplicant(Applicant applicant) {
     this.applicant = applicant;
-  }
-
-  @Override
-  public String toString() {
-    return "CreditBureauSummary{" +
-      "creditScore='" + creditScore + '\'' +
-      ", creditBureau=" + creditBureau +
-      ", requestedDate=" + requestedDate +
-      ", applicant=" + applicant +
-      '}';
   }
 }
