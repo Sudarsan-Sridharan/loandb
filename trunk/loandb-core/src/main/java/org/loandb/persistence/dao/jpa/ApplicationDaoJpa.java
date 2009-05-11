@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ApplicationDaoJpa extends GenericDaoJpa<Application, Long> implements ApplicationDao {
 
-  public ApplicationDaoJpa() {
-    super(Application.class);
-  }
+    public ApplicationDaoJpa() {
+        super(Application.class);
+    }
 }

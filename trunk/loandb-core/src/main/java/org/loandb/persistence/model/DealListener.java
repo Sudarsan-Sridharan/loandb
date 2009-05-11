@@ -10,9 +10,9 @@ import org.hibernate.envers.RevisionListener;
  */
 public class DealListener implements RevisionListener {
 
-  public void newRevision(Object revEntity) {
-    DealRevision dealRev = (DealRevision) revEntity;
-    //FIXME: This should come from the user submiting the deal.
-    dealRev.setUsername("admin");
-  }
+    public void newRevision(Object revEntity) {
+        DealRevision dealRev = (DealRevision) revEntity;
+        //FIXME: This should come from the user submiting the deal.
+        dealRev.setUsername("admin");
+    }
 }

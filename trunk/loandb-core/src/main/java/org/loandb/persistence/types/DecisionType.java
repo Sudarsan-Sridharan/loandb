@@ -7,5 +7,5 @@ package org.loandb.persistence.types;
  * @since Jan 4, 2009
  */
 public enum DecisionType {
-  APPROVE, DECLINE, APPROVE_REFER
+    APPROVE, DECLINE, APPROVE_REFER
 }

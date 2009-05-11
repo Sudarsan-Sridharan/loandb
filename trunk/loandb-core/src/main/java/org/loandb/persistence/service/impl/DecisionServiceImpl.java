@@ -29,59 +29,59 @@ import java.util.Set;
 @Service
 @Transactional
 public class DecisionServiceImpl implements DecisionService {
-  private static final Logger LOG = LoggerFactory.getLogger(DecisionServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DecisionServiceImpl.class);
 
-  @Autowired
-  public ApplicationDao applicationDao;
+    @Autowired
+    public ApplicationDao applicationDao;
 
-  public Decision getRiskDecision(Long id) {
-    LOG.debug("Getting decision for application id {}", id);
-    Application app = applicationDao.get(id);
+    public Decision getRiskDecision(Long id) {
+        LOG.debug("Getting decision for application id {}", id);
+        Application app = applicationDao.get(id);
 
-    Decision decision = new Decision();
-    Set<Long> approvedBorrowers = new HashSet<Long>();
-    Set<Long> declinedBorrowers = new HashSet<Long>();
-    Set<Long> referredBorrowers = new HashSet<Long>();
-    for (Applicant applicant : app.getApplicants()) {
-      int score = applicant.getCbrSummary().getCreditScore();
-      //simple logic to determine decision type
-      //TODO add more business rules
-      if (score > 700) {
-        //approve
-        approvedBorrowers.add(applicant.getId());
-      } else if (score > 600 && score < 650) {
-        //approve refer
-        referredBorrowers.add(applicant.getId());
-      } else {
-        //decline
-        declinedBorrowers.add(applicant.getId());
-      }
+        Decision decision = new Decision();
+        Set<Long> approvedBorrowers = new HashSet<Long>();
+        Set<Long> declinedBorrowers = new HashSet<Long>();
+        Set<Long> referredBorrowers = new HashSet<Long>();
+        for (Applicant applicant : app.getApplicants()) {
+            int score = applicant.getCbrSummary().getCreditScore();
+            //simple logic to determine decision type
+            //TODO add more business rules
+            if (score > 700) {
+                //approve
+                approvedBorrowers.add(applicant.getId());
+            } else if (score > 600 && score < 650) {
+                //approve refer
+                referredBorrowers.add(applicant.getId());
+            } else {
+                //decline
+                declinedBorrowers.add(applicant.getId());
+            }
+        }
+
+        if (declinedBorrowers.size() > 0) {
+            decision.setDecision(DecisionType.DECLINE);
+            decision.setDeclineReason(DeclineReason.FICO_SCORE.getReason());
+        }
+
+        if (referredBorrowers.size() > 0) {
+            decision.setDecision(DecisionType.APPROVE_REFER);
+        }
+
+        if (declinedBorrowers.size() == 0 && referredBorrowers.size() == 0) {
+            decision.setDecision(DecisionType.APPROVE);
+        }
+
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss.SSS Z");
+        Date date = new Date();
+        String datetime = dateFormat.format(date);
+        try {
+            date = dateFormat.parse(datetime);
+            decision.setDecisionedDate(date);
+        } catch (ParseException e) {
+            e.printStackTrace();//TODO: remove this
+        }
+        LOG.debug("Decision {} for application id {}", id, decision.getDecision());
+        return decision;
     }
-
-    if (declinedBorrowers.size() > 0) {
-      decision.setDecision(DecisionType.DECLINE);
-      decision.setDeclineReason(DeclineReason.FICO_SCORE.getReason());
-    }
-
-    if (referredBorrowers.size() > 0) {
-      decision.setDecision(DecisionType.APPROVE_REFER);
-    }
-
-    if (declinedBorrowers.size() == 0 && referredBorrowers.size() == 0) {
-      decision.setDecision(DecisionType.APPROVE);
-    }
-
-    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss.SSS Z");
-    Date date = new Date();
-    String datetime = dateFormat.format(date);
-    try {
-      date = dateFormat.parse(datetime);
-      decision.setDecisionedDate(date);
-    } catch (ParseException e) {
-      e.printStackTrace();//TODO: remove this
-    }
-    LOG.debug("Decision {} for application id {}", id, decision.getDecision());
-    return decision;
-  }
 
 }

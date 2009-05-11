@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class ApplicantDaoJpa extends GenericDaoJpa<Applicant, Long> implements ApplicantDao {
-  public ApplicantDaoJpa() {
-    super(Applicant.class);
-  }
+    public ApplicantDaoJpa() {
+        super(Applicant.class);
+    }
 }

@@ -14,17 +14,17 @@ import java.util.List;
  * @since Jan 4, 2009
  */
 public interface ApplicationService {
-  public Application createApp(Application application);
+    public Application createApp(Application application);
 
-  public Application updateApp(Application application);
+    public Application updateApp(Application application);
 
-  public Application getApp(Long id);
+    public Application getApp(Long id);
 
-  public void deleteApp(Long id);
+    public void deleteApp(Long id);
 
-  public List<Application> getAll();
+    public List<Application> getAll();
 
-  public Applicant saveCreditResponse(Applicant applicant, CreditBureauSummary cbrSummary);
+    public Applicant saveCreditResponse(Applicant applicant, CreditBureauSummary cbrSummary);
 
-  public Application saveDecisionResponse(Application application, Decision decision);
+    public Application saveDecisionResponse(Application application, Decision decision);
 }

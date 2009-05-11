@@ -25,24 +25,24 @@ package org.loandb.persistence.model;
  * @see org.loandb.persistence.util.EntityPruner for more details about pruning entities.
  */
 public interface PrunableEntity {
-  /**
-   * @return whether or not this entity has already been pruned.
-   */
-  public boolean isPruned();
+    /**
+     * @return whether or not this entity has already been pruned.
+     */
+    public boolean isPruned();
 
-  /**
-   * @param pruned whether or not this entity should be marked as pruned.
-   */
-  public void setPruned(boolean pruned);
+    /**
+     * @param pruned whether or not this entity should be marked as pruned.
+     */
+    public void setPruned(boolean pruned);
 
-  /**
-   * Get the Id from the entity.  We don't really care what it is, only
-   * whether or not it is <code>null</code>, which is why we can get away
-   * with returning an <code>Object</code>.  If an entity's ID column is not
-   * named &quot;id&quot;, then this method will probably be implemented as
-   * a pass-through to the method that gets the actual ID.
-   *
-   * @return the ID of the entity.
-   */
-  public Object getId();
+    /**
+     * Get the Id from the entity.  We don't really care what it is, only
+     * whether or not it is <code>null</code>, which is why we can get away
+     * with returning an <code>Object</code>.  If an entity's ID column is not
+     * named &quot;id&quot;, then this method will probably be implemented as
+     * a pass-through to the method that gets the actual ID.
+     *
+     * @return the ID of the entity.
+     */
+    public Object getId();
 }

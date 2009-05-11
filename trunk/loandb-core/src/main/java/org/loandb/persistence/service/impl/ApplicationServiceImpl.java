@@ -24,49 +24,49 @@ import java.util.List;
 @Service
 @Transactional
 public class ApplicationServiceImpl implements ApplicationService {
-  private static final Logger LOG = LoggerFactory.getLogger(ApplicationServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ApplicationServiceImpl.class);
 
-  @Autowired
-  public ApplicationDao applicationDao;
+    @Autowired
+    public ApplicationDao applicationDao;
 
-  @Autowired
-  public ApplicantDao applicantDao;
+    @Autowired
+    public ApplicantDao applicantDao;
 
-  public Application createApp(Application application) {
-    LOG.debug("saving application for loan type " + application.getLoanType());
-    return applicationDao.save(application);
-  }
+    public Application createApp(Application application) {
+        LOG.debug("saving application for loan type " + application.getLoanType());
+        return applicationDao.save(application);
+    }
 
-  public Application updateApp(Application application) {
-    LOG.debug("updating application id {} " + application.getId());
-    return applicationDao.update(application);
-  }
+    public Application updateApp(Application application) {
+        LOG.debug("updating application id {} " + application.getId());
+        return applicationDao.update(application);
+    }
 
-  public Application getApp(Long id) {
-    LOG.debug("retrieving application id {} " + id);
-    return applicationDao.get(id);
-  }
+    public Application getApp(Long id) {
+        LOG.debug("retrieving application id {} " + id);
+        return applicationDao.get(id);
+    }
 
-  public void deleteApp(Long id) {
-    LOG.debug("deleting application id {} " + id);
-    applicationDao.remove(id);
-  }
+    public void deleteApp(Long id) {
+        LOG.debug("deleting application id {} " + id);
+        applicationDao.remove(id);
+    }
 
-  public List<Application> getAll() {
-    return applicationDao.getAll();
-  }
+    public List<Application> getAll() {
+        return applicationDao.getAll();
+    }
 
-  public Applicant saveCreditResponse(Applicant applicant, CreditBureauSummary cbrSummary) {
-    LOG.debug("saving credit response for applicant id {} " + applicant.getId());
-    applicant.setCbrSummary(cbrSummary);
-    cbrSummary.setApplicant(applicant);
-    return applicantDao.update(applicant);
-  }
+    public Applicant saveCreditResponse(Applicant applicant, CreditBureauSummary cbrSummary) {
+        LOG.debug("saving credit response for applicant id {} " + applicant.getId());
+        applicant.setCbrSummary(cbrSummary);
+        cbrSummary.setApplicant(applicant);
+        return applicantDao.update(applicant);
+    }
 
-  public Application saveDecisionResponse(Application application, Decision decision) {
-    LOG.debug("saving decision for application id {} " + application.getId());
-    application.setDecision(decision);
-    decision.setApplication(application);
-    return applicationDao.update(application);
-  }
+    public Application saveDecisionResponse(Application application, Decision decision) {
+        LOG.debug("saving decision for application id {} " + application.getId());
+        application.setDecision(decision);
+        decision.setApplication(application);
+        return applicationDao.update(application);
+    }
 }
