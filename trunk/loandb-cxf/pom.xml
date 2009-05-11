@@ -10,6 +10,7 @@
     <groupId>org.loandb</groupId>
     <artifactId>loandb-cxf</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <name>LoanDB - CXF Frontend (JAX-WS, JAX-RS)</name>
     <dependencies>
         <!-- CXF DEPENDENCIES -->
         <dependency>

@@ -126,19 +126,4 @@ public class Applicant extends BaseEntity {
   public void setCbrSummary(CreditBureauSummary cbrSummary) {
     this.cbrSummary = cbrSummary;
   }
-
-  @Override
-  public String toString() {
-    return "Applicant{" +
-      "ssn='" + ssn + '\'' +
-      ", dateOfBirth=" + dateOfBirth +
-      ", firstName='" + firstName + '\'' +
-      ", lastName='" + lastName + '\'' +
-      ", middleName='" + middleName + '\'' +
-      ", applicantRole=" + applicantRole +
-      ", residentialAddress=" + residentialAddress +
-      ", application=" + application +
-      ", cbrSummary=" + cbrSummary +
-      '}';
-  }
 }

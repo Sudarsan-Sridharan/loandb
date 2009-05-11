@@ -10,9 +10,10 @@
     <groupId>org.loandb</groupId>
     <artifactId>loandb-core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>${pom.artifactId}</name>
+    <name>LoanDB - Core Data Model</name>
     <packaging>jar</packaging>
     <build>
+        <finalName>loandb</finalName>        
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

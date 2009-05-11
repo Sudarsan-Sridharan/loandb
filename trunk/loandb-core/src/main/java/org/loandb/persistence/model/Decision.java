@@ -4,6 +4,7 @@ import org.loandb.persistence.types.DecisionType;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
 
@@ -25,6 +26,7 @@ public class Decision extends BaseEntity {
   private Date decisionedDate;
 
   @OneToOne(mappedBy = "decision")
+  @XmlTransient
   private Application application;
 
   @Column(name = "DECLINE_REASON")
@@ -60,14 +62,5 @@ public class Decision extends BaseEntity {
 
   public void setDeclineReason(String declineReason) {
     this.declineReason = declineReason;
-  }
-
-  @Override
-  public String toString() {
-    return "Decision{" +
-      "decision=" + decision +
-      ", decisionedDate=" + decisionedDate +
-      ", application=" + application +
-      '}';
   }
 }

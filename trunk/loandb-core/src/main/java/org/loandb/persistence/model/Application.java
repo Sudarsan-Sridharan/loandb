@@ -115,17 +115,4 @@ public class Application extends BaseEntity {
   public void setSubmitDate(Date submitDate) {
     this.submitDate = submitDate;
   }
-
-  @Override
-  public String toString() {
-    return "Application{" +
-      "version=" + version +
-      ", submitDate=" + submitDate +
-      ", loanAmount=" + loanAmount +
-      ", loanType=" + loanType +
-      ", propertyAddress=" + propertyAddress +
-      ", applicants=" + applicants +
-      ", decision=" + decision +
-      '}';
-  }
 }
