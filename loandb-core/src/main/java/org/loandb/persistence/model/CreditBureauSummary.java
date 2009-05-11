@@ -16,50 +16,50 @@ import java.util.Date;
 @Entity
 @XmlRootElement
 public class CreditBureauSummary extends BaseEntity {
-  @Column(name = "CREDIT_SCORE", nullable = false)
-  private Integer creditScore;
+    @Column(name = "CREDIT_SCORE", nullable = false)
+    private Integer creditScore;
 
-  @Column(name = "CREDIT_BUREAU", nullable = false)
-  @Enumerated(EnumType.STRING)
-  private CreditBureauType creditBureau;
+    @Column(name = "CREDIT_BUREAU", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CreditBureauType creditBureau;
 
-  @Column(name = "REQ_DATE", nullable = false)
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date requestedDate;
+    @Column(name = "REQ_DATE", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date requestedDate;
 
-  @OneToOne(mappedBy = "cbrSummary")
-  @XmlTransient
-  private Applicant applicant;
+    @OneToOne(mappedBy = "cbrSummary")
+    @XmlTransient
+    private Applicant applicant;
 
-  public Integer getCreditScore() {
-    return creditScore;
-  }
+    public Integer getCreditScore() {
+        return creditScore;
+    }
 
-  public void setCreditScore(Integer creditScore) {
-    this.creditScore = creditScore;
-  }
+    public void setCreditScore(Integer creditScore) {
+        this.creditScore = creditScore;
+    }
 
-  public CreditBureauType getCreditBureau() {
-    return creditBureau;
-  }
+    public CreditBureauType getCreditBureau() {
+        return creditBureau;
+    }
 
-  public void setCreditBureau(CreditBureauType creditBureau) {
-    this.creditBureau = creditBureau;
-  }
+    public void setCreditBureau(CreditBureauType creditBureau) {
+        this.creditBureau = creditBureau;
+    }
 
-  public Date getRequestedDate() {
-    return requestedDate;
-  }
+    public Date getRequestedDate() {
+        return requestedDate;
+    }
 
-  public void setRequestedDate(Date requestedDate) {
-    this.requestedDate = requestedDate;
-  }
+    public void setRequestedDate(Date requestedDate) {
+        this.requestedDate = requestedDate;
+    }
 
-  public Applicant getApplicant() {
-    return applicant;
-  }
+    public Applicant getApplicant() {
+        return applicant;
+    }
 
-  public void setApplicant(Applicant applicant) {
-    this.applicant = applicant;
-  }
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
+    }
 }

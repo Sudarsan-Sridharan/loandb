@@ -8,15 +8,15 @@ package org.loandb.persistence.types;
  */
 public enum DeclineReason {
 
-  FICO_SCORE("FICO Score");
+    FICO_SCORE("FICO Score");
 
-  private String reason;
+    private String reason;
 
-  DeclineReason(String reason) {
-    this.reason = reason;
-  }
+    DeclineReason(String reason) {
+        this.reason = reason;
+    }
 
-  public String getReason() {
-    return reason;
-  }
+    public String getReason() {
+        return reason;
+    }
 }

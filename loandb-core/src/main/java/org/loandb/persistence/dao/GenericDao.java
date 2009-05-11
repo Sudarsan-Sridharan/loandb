@@ -10,15 +10,15 @@ import java.util.List;
  * @since Jan 4, 2009
  */
 public interface GenericDao<T, PK extends Serializable> {
-  List<T> getAll();
+    List<T> getAll();
 
-  T get(PK id);
+    T get(PK id);
 
-  boolean exists(PK id);
+    boolean exists(PK id);
 
-  T save(T entity);
+    T save(T entity);
 
-  T update(T entity);
+    T update(T entity);
 
-  void remove(PK id);
+    void remove(PK id);
 }

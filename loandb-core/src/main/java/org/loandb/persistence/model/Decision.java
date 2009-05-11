@@ -17,50 +17,50 @@ import java.util.Date;
 @Entity
 @XmlRootElement
 public class Decision extends BaseEntity {
-  @Column(name = "DEC_TYPE", nullable = false)
-  @Enumerated(EnumType.STRING)
-  private DecisionType decision;
+    @Column(name = "DEC_TYPE", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private DecisionType decision;
 
-  @Column(name = "DEC_DATE", nullable = false)
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date decisionedDate;
+    @Column(name = "DEC_DATE", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date decisionedDate;
 
-  @OneToOne(mappedBy = "decision")
-  @XmlTransient
-  private Application application;
+    @OneToOne(mappedBy = "decision")
+    @XmlTransient
+    private Application application;
 
-  @Column(name = "DECLINE_REASON")
-  private String declineReason;
+    @Column(name = "DECLINE_REASON")
+    private String declineReason;
 
-  public DecisionType getDecision() {
-    return decision;
-  }
+    public DecisionType getDecision() {
+        return decision;
+    }
 
-  public void setDecision(DecisionType decision) {
-    this.decision = decision;
-  }
+    public void setDecision(DecisionType decision) {
+        this.decision = decision;
+    }
 
-  public Application getApplication() {
-    return application;
-  }
+    public Application getApplication() {
+        return application;
+    }
 
-  public void setApplication(Application application) {
-    this.application = application;
-  }
+    public void setApplication(Application application) {
+        this.application = application;
+    }
 
-  public Date getDecisionedDate() {
-    return decisionedDate;
-  }
+    public Date getDecisionedDate() {
+        return decisionedDate;
+    }
 
-  public void setDecisionedDate(Date decisionedDate) {
-    this.decisionedDate = decisionedDate;
-  }
+    public void setDecisionedDate(Date decisionedDate) {
+        this.decisionedDate = decisionedDate;
+    }
 
-  public String getDeclineReason() {
-    return declineReason;
-  }
+    public String getDeclineReason() {
+        return declineReason;
+    }
 
-  public void setDeclineReason(String declineReason) {
-    this.declineReason = declineReason;
-  }
+    public void setDeclineReason(String declineReason) {
+        this.declineReason = declineReason;
+    }
 }

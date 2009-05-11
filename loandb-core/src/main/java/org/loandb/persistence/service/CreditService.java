@@ -11,7 +11,7 @@ import java.util.List;
  * @since Jan 4, 2009
  */
 public interface CreditService {
-  public CreditBureauSummary getCredit(Long applicantId);
+    public CreditBureauSummary getCredit(Long applicantId);
 
-  public List<CreditBureauSummary> getCredits(List<Long> applicantIds);
+    public List<CreditBureauSummary> getCredits(List<Long> applicantIds);
 }

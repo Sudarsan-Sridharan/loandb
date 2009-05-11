@@ -9,5 +9,5 @@ import org.loandb.persistence.model.Decision;
  * @since Jan 4, 2009
  */
 public interface DecisionService {
-  public Decision getRiskDecision(Long dealId);
+    public Decision getRiskDecision(Long dealId);
 }

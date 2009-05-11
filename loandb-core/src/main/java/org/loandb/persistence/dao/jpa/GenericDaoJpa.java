@@ -15,42 +15,42 @@ import java.util.List;
  */
 public abstract class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, PK> {
 
-  @PersistenceContext
-  protected EntityManager entityManager;
+    @PersistenceContext
+    protected EntityManager entityManager;
 
-  private Class<T> persistentClass;
+    private Class<T> persistentClass;
 
-  public GenericDaoJpa(Class<T> persistentClass) {
-    this.persistentClass = persistentClass;
-  }
+    public GenericDaoJpa(Class<T> persistentClass) {
+        this.persistentClass = persistentClass;
+    }
 
-  public List<T> getAll() {
-    return this.entityManager.createQuery(
-      "select entity from " + this.persistentClass.getName() + " entity")
-      .getResultList();
-  }
+    public List<T> getAll() {
+        return this.entityManager.createQuery(
+                "select entity from " + this.persistentClass.getName() + " entity")
+                .getResultList();
+    }
 
-  public T get(PK id) {
-    T entity = this.entityManager.find(this.persistentClass, id);
-    return entity;
-  }
+    public T get(PK id) {
+        T entity = this.entityManager.find(this.persistentClass, id);
+        return entity;
+    }
 
-  public boolean exists(PK id) {
-    T entity = this.entityManager.find(this.persistentClass, id);
-    return entity != null;
-  }
+    public boolean exists(PK id) {
+        T entity = this.entityManager.find(this.persistentClass, id);
+        return entity != null;
+    }
 
-  public T save(T entity) {
-    this.entityManager.persist(entity);
-    return entity;
-  }
+    public T save(T entity) {
+        this.entityManager.persist(entity);
+        return entity;
+    }
 
-  public T update(T entity) {
-    return this.entityManager.merge(entity);
-  }
+    public T update(T entity) {
+        return this.entityManager.merge(entity);
+    }
 
 
-  public void remove(PK id) {
-    this.entityManager.remove(this.get(id));
-  }
+    public void remove(PK id) {
+        this.entityManager.remove(this.get(id));
+    }
 }

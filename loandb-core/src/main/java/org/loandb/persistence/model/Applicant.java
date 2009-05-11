@@ -16,114 +16,114 @@ import java.util.Date;
 @Entity
 @XmlRootElement
 public class Applicant extends BaseEntity {
-  @Audited
-  @Column(name = "SSN", nullable = false)
-  private String ssn;
+    @Audited
+    @Column(name = "SSN", nullable = false)
+    private String ssn;
 
-  @Audited
-  @Column(name = "BIRTH_DATE", nullable = false)
-  @Temporal(TemporalType.DATE)
-  private Date dateOfBirth;
+    @Audited
+    @Column(name = "BIRTH_DATE", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date dateOfBirth;
 
-  @Audited
-  @Column(name = "FIRST_NAME", nullable = false)
-  private String firstName;
+    @Audited
+    @Column(name = "FIRST_NAME", nullable = false)
+    private String firstName;
 
-  @Audited
-  @Column(name = "LAST_NAME", nullable = false)
-  private String lastName;
+    @Audited
+    @Column(name = "LAST_NAME", nullable = false)
+    private String lastName;
 
-  @Column(name = "MIDDLE_NAME")
-  private String middleName;
+    @Column(name = "MIDDLE_NAME")
+    private String middleName;
 
-  @Audited
-  @Column(name = "APPLICANT_ROLE", nullable = false)
-  @Enumerated
-  private ApplicantRole applicantRole;
+    @Audited
+    @Column(name = "APPLICANT_ROLE", nullable = false)
+    @Enumerated
+    private ApplicantRole applicantRole;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "RES_ADDRESS_ID", nullable = false)
-  private Address residentialAddress;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "RES_ADDRESS_ID", nullable = false)
+    private Address residentialAddress;
 
-  @ManyToOne
+    @ManyToOne
 //  @JoinColumn(name = "APPLICATION_ID", unique=false, nullable=false, insertable=true, updatable=true)
-  @JoinColumn(name = "APPLICATION_ID", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "APPLICATION_ID", nullable = false, insertable = false, updatable = false)
 //  @JoinColumn(name = "APPLICATION_ID", referencedColumnName = "PK")
-  private Application application;
+    private Application application;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "CBR_SUMMARY_ID")
-  private CreditBureauSummary cbrSummary;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CBR_SUMMARY_ID")
+    private CreditBureauSummary cbrSummary;
 
-  public String getSsn() {
-    return ssn;
-  }
+    public String getSsn() {
+        return ssn;
+    }
 
-  public void setSsn(String ssn) {
-    this.ssn = ssn;
-  }
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
 
-  public Date getDateOfBirth() {
-    return dateOfBirth;
-  }
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
 
-  public void setDateOfBirth(Date dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-  }
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
-  public String getFirstName() {
-    return firstName;
-  }
+    public String getFirstName() {
+        return firstName;
+    }
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-  public String getLastName() {
-    return lastName;
-  }
+    public String getLastName() {
+        return lastName;
+    }
 
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-  public String getMiddleName() {
-    return middleName;
-  }
+    public String getMiddleName() {
+        return middleName;
+    }
 
-  public void setMiddleName(String middleName) {
-    this.middleName = middleName;
-  }
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
 
-  public ApplicantRole getApplicantRole() {
-    return applicantRole;
-  }
+    public ApplicantRole getApplicantRole() {
+        return applicantRole;
+    }
 
-  public void setApplicantRole(ApplicantRole applicantRole) {
-    this.applicantRole = applicantRole;
-  }
+    public void setApplicantRole(ApplicantRole applicantRole) {
+        this.applicantRole = applicantRole;
+    }
 
-  public Address getResidentialAddress() {
-    return residentialAddress;
-  }
+    public Address getResidentialAddress() {
+        return residentialAddress;
+    }
 
-  public void setResidentialAddress(Address residentialAddress) {
-    this.residentialAddress = residentialAddress;
-  }
+    public void setResidentialAddress(Address residentialAddress) {
+        this.residentialAddress = residentialAddress;
+    }
 
-  public Application getApplication() {
-    return application;
-  }
+    public Application getApplication() {
+        return application;
+    }
 
-  public void setApplication(Application application) {
-    this.application = application;
-  }
+    public void setApplication(Application application) {
+        this.application = application;
+    }
 
-  public CreditBureauSummary getCbrSummary() {
-    return cbrSummary;
-  }
+    public CreditBureauSummary getCbrSummary() {
+        return cbrSummary;
+    }
 
-  public void setCbrSummary(CreditBureauSummary cbrSummary) {
-    this.cbrSummary = cbrSummary;
-  }
+    public void setCbrSummary(CreditBureauSummary cbrSummary) {
+        this.cbrSummary = cbrSummary;
+    }
 }
