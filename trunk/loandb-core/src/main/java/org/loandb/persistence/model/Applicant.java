@@ -5,6 +5,7 @@ import org.loandb.persistence.types.ApplicantRole;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
 /**
@@ -49,6 +50,7 @@ public class Applicant extends BaseEntity {
 //  @JoinColumn(name = "APPLICATION_ID", unique=false, nullable=false, insertable=true, updatable=true)
     @JoinColumn(name = "APPLICATION_ID", nullable = false, insertable = false, updatable = false)
 //  @JoinColumn(name = "APPLICATION_ID", referencedColumnName = "PK")
+    @XmlTransient
     private Application application;
 
     @OneToOne(cascade = CascadeType.ALL)
