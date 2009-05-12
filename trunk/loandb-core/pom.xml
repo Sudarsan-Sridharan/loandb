@@ -12,6 +12,13 @@
     <version>1.0.0-SNAPSHOT</version>
     <name>LoanDB - Core Data Model</name>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.loandb</groupId>
+            <artifactId>entity-pruner</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>        
+    </dependencies>
     <build>
         <finalName>loandb</finalName>        
         <plugins>
