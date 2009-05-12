@@ -1,8 +1,9 @@
 package org.loandb.frontends.jersey.resources;
 
+import com.sun.jersey.api.NotFoundException;
+import com.saliman.entitypruner.EntityPrunerHibernateJpa;
 import org.loandb.persistence.model.Application;
 import org.loandb.persistence.service.ApplicationService;
-import org.loandb.persistence.util.EntityPruner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -12,8 +13,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import com.sun.jersey.api.NotFoundException;
 
 /**
  * This code is licensed under Apache License Version 2.0.
@@ -39,7 +38,8 @@ public class ApplicationResource {
         if (application == null) {
             throw new NotFoundException("Application not found for id : " + appid);
         }
-        EntityPruner.prune(application);
+        EntityPrunerHibernateJpa pruner = new EntityPrunerHibernateJpa();
+        pruner.prune(application, 2);
         return application;
     }
 

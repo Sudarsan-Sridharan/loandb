@@ -1,10 +1,13 @@
 package org.loandb.persistence.model;
 
+import com.saliman.entitypruner.PrunableEntity;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -23,22 +26,14 @@ public abstract class BaseEntity implements PrunableEntity, Serializable {
 
     @Transient
     @XmlTransient
-    private boolean hydrated;
+    private boolean pruned = false;
 
     @Transient
     @XmlTransient
-    private boolean pruned;
+    private Map<String, Object> fieldIdMap;
 
     public Long getId() {
         return id;
-    }
-
-    public boolean isHydrated() {
-        return hydrated;
-    }
-
-    public void setHydrated(boolean hydrated) {
-        this.hydrated = hydrated;
     }
 
     public boolean isPruned() {
@@ -47,5 +42,17 @@ public abstract class BaseEntity implements PrunableEntity, Serializable {
 
     public void setPruned(boolean pruned) {
         this.pruned = pruned;
+    }
+
+    public Map<String, Object> getFieldIdMap() {
+        return fieldIdMap;
+    }
+
+    public void setFieldIdMap(Map<String, Object> fieldIdMap) {
+        this.fieldIdMap = fieldIdMap;
+    }
+
+    public boolean isPersistent() {
+        return id != null;
     }
 }
