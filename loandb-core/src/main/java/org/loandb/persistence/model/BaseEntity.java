@@ -30,7 +30,7 @@ public abstract class BaseEntity implements PrunableEntity, Serializable {
 
     @Transient
     @XmlTransient
-    private Map<String, Object> fieldIdMap;
+    private Map<String, String> fieldIdMap;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public abstract class BaseEntity implements PrunableEntity, Serializable {
         this.pruned = pruned;
     }
 
-    public Map<String, Object> getFieldIdMap() {
+    public Map<String, String> getFieldIdMap() {
         return fieldIdMap;
     }
 
-    public void setFieldIdMap(Map<String, Object> fieldIdMap) {
+    public void setFieldIdMap(Map<String, String> fieldIdMap) {
         this.fieldIdMap = fieldIdMap;
     }
 
