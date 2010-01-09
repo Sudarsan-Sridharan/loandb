@@ -22,15 +22,15 @@ import org.hibernate.proxy.LazyInitializer;
  * It handles populating an entity to a specified depth to prepare for pruning
  * calls.
  * <p>
- * It also handles transferring transient attributes from one object to 
+ * It also handles transferring transient attributes from one object to
  * another, since saving an entity can wipe out transient attributes.
  * <p>
  * This class is heavily dependent on the JPA provider and the types of
  * collections Entities have.  At the moment, the methods in this class only
  * work with Hibernate, and child collections must be a <code>Set</code>.  In
- * Addition, the entities must use field annotations and not method 
+ * Addition, the entities must use field annotations and not method
  * annotations.
- * 
+ *
  * @author Steven C. Saliman
  */
 public class EntityUtil {
@@ -38,13 +38,13 @@ public class EntityUtil {
     private static final Logger LOG = Logger.getLogger(EntityUtil.class);
 
     /**
-     * Determines if a collection has been initialized. This is most useful 
+     * Determines if a collection has been initialized. This is most useful
      * in hiding Hibernate from non-DAO tasks.  An initialized collection is
      * one we can safely access, such as an initialized Hibernate PersistentBag
-     * or an ordinary Set.  This method treats <code>null</code> as an 
+     * or an ordinary Set.  This method treats <code>null</code> as an
      * uninitialized set.
      * @param collection the collection to check.
-     * @return <code>true</code> if the collection has been initialized. 
+     * @return <code>true</code> if the collection has been initialized.
      */
     public static boolean initialized(Collection<?> collection) {
         boolean init = false;
@@ -64,10 +64,10 @@ public class EntityUtil {
         }
         return init;
     }
-    
+
     /**
-     * Copies the transient attributes from one entity to another.  This 
-     * is needed when we save an Entity, because the 
+     * Copies the transient attributes from one entity to another.  This
+     * is needed when we save an Entity, because the
      * {@link BaseDao#save(Persistable)} returns a copy of the original entity,
      * refreshed from the database, which can cause the transient attributes to
      * be lost.
@@ -93,17 +93,17 @@ public class EntityUtil {
             }
         }
     }
-    
+
     /**
      * Populate the given entity to the given depth.  A depth of 1 indicates
      * that only the entity itself needs to be populated.  A depth of 2 means
-     * all the entity's children are loaded, 3 causes grandchildren to be 
+     * all the entity's children are loaded, 3 causes grandchildren to be
      * loaded, etc.
      * <p>
-     * This method also makes sure that any field that is a proxy is 
+     * This method also makes sure that any field that is a proxy is
      * initialized.
      * <p>
-     * This method can only be called within a session, or we'll get lazy 
+     * This method can only be called within a session, or we'll get lazy
      * loading errors.
      * @param entity the {@link PrunableEntity} entity to populate
      * @param depth the depth to populate to.  1 for just the entity, 2 for
@@ -130,7 +130,7 @@ public class EntityUtil {
                     collection = (Collection<?>)f.get(entity);
                     if ( collection != null ) {
                         for ( Object value : collection ) {
-                            // the iterator causes the children to be loaded. 
+                            // the iterator causes the children to be loaded.
                             // We need the recursive call to de-proxy.
                             if ( PrunableEntity.class.isAssignableFrom(value.getClass()) ) {
                                 // child needs one less than parent
@@ -176,7 +176,7 @@ public class EntityUtil {
     /**
      * Helper method that gets all the fields of a class and it's super-classes.
      * @param clazz The class whose fields we want.
-     * @return a List of fields from the given class and it's parents, up to 
+     * @return a List of fields from the given class and it's parents, up to
      *         the Object class.
      */
     private static List<Field> obtainFields(Class<?> clazz) {
@@ -190,12 +190,12 @@ public class EntityUtil {
         }
         return fields;
     }
-    
+
     /**
-     * Gets the value from the given field.  We can't just use field.get 
+     * Gets the value from the given field.  We can't just use field.get
      * because Hibernate doesn't always store the value in the field. It seems
      * to store it in some CGLIB field, using proxy methods to get to it. We,
-     * therefore, need to use those same proxies, or we won't be getting the 
+     * therefore, need to use those same proxies, or we won't be getting the
      * correct value.
      * @param field the field object representing the field with the value
      *        we want.
@@ -221,7 +221,7 @@ public class EntityUtil {
         Object value = null;
         // Get the value.  We need to try using the "get" method first, but
         // not all fields will have a method (SERIAL_VERSION_UID for example),
-        // so we need to get the actual field value if the method doesn't 
+        // so we need to get the actual field value if the method doesn't
         // exist.
         try {
             Method method = field.getDeclaringClass().getMethod(name);

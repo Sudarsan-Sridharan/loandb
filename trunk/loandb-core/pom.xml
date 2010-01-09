@@ -25,7 +25,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>hibernate3-maven-plugin</artifactId>
-                <version>2.2-SNAPSHOT</version>
+                <version>2.2</version>
                 <configuration>
                     <components>
                         <component>
@@ -55,7 +55,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>dbunit-maven-plugin</artifactId>
-                <version>1.0-beta-2-SNAPSHOT</version>
+                <version>1.0-beta-3</version>
                 <configuration>
                     <dataTypeFactoryName>${dbunit.dataTypeFactoryName}</dataTypeFactoryName>
                     <driver>${jdbc.driverClassName}</driver>
@@ -113,7 +113,7 @@
                 <hibernate.dialect>org.hibernate.dialect.H2Dialect</hibernate.dialect>
                 <jdbc.groupId>com.h2database</jdbc.groupId>
                 <jdbc.artifactId>h2</jdbc.artifactId>
-                <jdbc.version>1.0.106</jdbc.version>
+                <jdbc.version>1.2.126</jdbc.version>
                 <jdbc.driverClassName>org.h2.Driver</jdbc.driverClassName>
                 <jdbc.url><![CDATA[jdbc:h2:loandb]]></jdbc.url>
                 <jdbc.username>sa</jdbc.username>
@@ -127,7 +127,7 @@
                 <hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>
                 <jdbc.groupId>hsqldb</jdbc.groupId>
                 <jdbc.artifactId>hsqldb</jdbc.artifactId>
-                <jdbc.version>1.8.0.10</jdbc.version>
+                <jdbc.version>1.8.1.1</jdbc.version>
                 <jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>
                 <jdbc.url><![CDATA[jdbc:hsqldb:loandb;shutdown=true]]></jdbc.url>
                 <jdbc.username>sa</jdbc.username>
