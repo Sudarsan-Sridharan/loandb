@@ -59,24 +59,25 @@
         <cxf.version>2.3.0-SNAPSHOT</cxf.version>
         <jersey.version>1.1.4.1</jersey.version>
         <axis2.version>1.5.1</axis2.version>
-        <spring.version>2.5.6.SEC01</spring.version>
+        <spring.version>3.0.0.RELEASE</spring.version>
         <hibernate.core.version>3.5.0-Beta-2</hibernate.core.version>
         <hibernate.envers.version>3.5.0-Beta-2</hibernate.envers.version>
         <slf4j.version>1.5.10</slf4j.version>
         <jaxb.version>2.1.12</jaxb.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Database settings -->
-        <dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>
-        <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
-        <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-        <jdbc.groupId>mysql</jdbc.groupId>
-        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
-        <jdbc.version>5.1.10</jdbc.version>
-        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-        <jdbc.url>
-            <![CDATA[jdbc:mysql://localhost/loandb_test?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
-        <jdbc.username>root</jdbc.username>
-        <jdbc.password></jdbc.password>
+        <!--<dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>-->
+        <!--<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>-->
+        <!--<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>-->
+        <!--<jdbc.groupId>mysql</jdbc.groupId>-->
+        <!--<jdbc.artifactId>mysql-connector-java</jdbc.artifactId>-->
+        <!--<jdbc.version>5.1.10</jdbc.version>-->
+        <!--<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>-->
+        <!--<jdbc.url>-->
+            <!--<![CDATA[jdbc:mysql://localhost/loandb_test?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>-->
+        <!--<jdbc.username>root</jdbc.username>-->
+        <!--<jdbc.password></jdbc.password>-->
     </properties>
 
     <modules>
@@ -235,8 +236,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -321,11 +322,14 @@
             <name>Java Net 2 Repository</name>
             <url>http://download.java.net/maven/2</url>
         </repository>
-        <repository>
-            <id>apache.snapshot</id>
-            <name>Apache Snapshot Repository</name>
-            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
-        </repository>
+       <repository>
+          <id>apache-snapshots</id>
+          <name>Apache SNAPSHOT Repository</name>
+          <url>http://repository.apache.org/snapshots/</url>
+          <snapshots>
+             <enabled>true</enabled>
+          </snapshots>
+       </repository>
         <repository>
             <id>Codehaus Snapshots</id>
             <url>http://snapshots.repository.codehaus.org/</url>

@@ -27,4 +27,9 @@ public interface ApplicationService {
     public Applicant saveCreditResponse(Applicant applicant, CreditBureauSummary cbrSummary);
 
     public Application saveDecisionResponse(Application application, Decision decision);
+
+    /**
+     * Important: Use this API for testing purposes only. 
+     */
+    public void clear();
 }
