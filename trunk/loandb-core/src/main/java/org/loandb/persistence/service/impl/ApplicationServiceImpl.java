@@ -69,4 +69,11 @@ public class ApplicationServiceImpl implements ApplicationService {
         decision.setApplication(application);
         return applicationDao.update(application);
     }
+
+    public void clear() {
+        LOG.debug("clearing all applications. use this for testing purposes only.");
+        for (Application application : getAll()) {
+            deleteApp(application.getId());
+        }
+    }
 }
