@@ -10,18 +10,18 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <tx:annotation-driven/>
-    <context:annotation-config/>    
-    <context:component-scan base-package="org.loandb.persistence"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="org.loandb.persistence,org.loandb.frontends.jersey.resources"/>
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="ignoreResourceNotFound" value="true"/>
-        <property name="locations">
-            <list>
-                <value>classpath:jdbc.properties</value>
-            </list>
-        </property>
-    </bean>    
+    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="ignoreResourceNotFound" value="true"/>-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>classpath:jdbc.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>    -->
 
     <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->
     <!--<property name="driverClass" value="${jdbc.driverClassName}"/>-->
@@ -45,18 +45,22 @@
         <property name="defaultAutoCommit" value="${dbcp.defaultAutoCommit}"/>
     </bean>
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <bean id="jpaAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+        p:database="${jpa.database}" p:showSql="${jpa.showSql}" />
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+            p:dataSource-ref="dataSource" p:jpaVendorAdapter-ref="jpaAdapter">
         <property name="persistenceXmlLocation" value="META-INF/loandb-persistence.xml"/>
         <property name="persistenceUnitName" value="loandb"/>
-        <property name="dataSource" ref="dataSource"/>
-        <property name="jpaDialect" ref="jpaDialect"/>
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="showSql" value="false"/>
-                <property name="generateDdl" value="true"/>
-                <property name="databasePlatform" value="${hibernate.dialect}"/>
-            </bean>
-        </property>
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="jpaDialect" ref="jpaDialect"/>-->
+        <!--<property name="jpaVendorAdapter">-->
+            <!--<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">-->
+                <!--<property name="showSql" value="false"/>-->
+                <!--<property name="generateDdl" value="true"/>-->
+                <!--<property name="databasePlatform" value="${hibernate.dialect}"/>-->
+            <!--</bean>-->
+        <!--</property>-->
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
@@ -73,12 +77,10 @@
         </property>
     </bean>
 
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+        p:entityManagerFactory-ref="entityManagerFactory" />
 
-    <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+    <!--<bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>-->
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>

@@ -3,9 +3,7 @@ package org.loandb.persistence;
 import org.loandb.persistence.model.Address;
 import org.loandb.persistence.model.Applicant;
 import org.loandb.persistence.model.Application;
-import org.loandb.persistence.types.AddressType;
-import org.loandb.persistence.types.ApplicantRole;
-import org.loandb.persistence.types.LoanType;
+import org.loandb.persistence.types.*;
 import org.springframework.util.StopWatch;
 
 import java.text.DateFormat;
@@ -60,6 +58,19 @@ public class ApplicationTest extends AbstractSpringTest {
         applicant.setSsn("000-00-0001");
         applicant.setFirstName("KEN");
         applicant.setLastName("CUSTOMER");
+        applicant.setEmailAddress("ken@customer.com");
+        applicant.setGenderType(GenderType.MALE);
+        applicant.setIdentificationNumber("1234567890");
+        applicant.setIdentificationAuthority("DOT");
+        applicant.setIdentificationType(IdentificationType.LICENSE);
+        try {
+            applicant.setIdentificationIssueDate(dateFormat.parse("07/11/2007"));
+            applicant.setIdentificationExpirationDate(dateFormat.parse("07/11/2012"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        applicant.setPhoneNumber("123-456-7890");
+        applicant.setPhoneType(PhoneType.HOME);
         applicant.setResidentialAddress(residentialAddress());
         return applicant;
     }

@@ -73,6 +73,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     public void clear() {
         LOG.debug("clearing all applications. use this for testing purposes only.");
         for (Application application : getAll()) {
+            application.setArchived(true);
             deleteApp(application.getId());
         }
     }
