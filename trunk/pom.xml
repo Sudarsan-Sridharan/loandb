@@ -75,7 +75,7 @@
         <!--<jdbc.version>5.1.10</jdbc.version>-->
         <!--<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>-->
         <!--<jdbc.url>-->
-            <!--<![CDATA[jdbc:mysql://localhost/loandb_test?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>-->
+        <!--<![CDATA[jdbc:mysql://localhost/loandb_test?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>-->
         <!--<jdbc.username>root</jdbc.username>-->
         <!--<jdbc.password></jdbc.password>-->
     </properties>
@@ -90,6 +90,13 @@
 
     <dependencies>
         <!-- HIBERNATE DEPENDENCIES -->
+        <dependency>
+            <groupId>org.hibernate.java-persistence</groupId>
+            <artifactId>jpa-api</artifactId>
+            <version>2.0-cr-1</version>
+            <scope>compile</scope>
+        </dependency>
+        
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -110,7 +117,7 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-annotations</artifactId>
             <version>3.5.0-Beta-2</version>
-        </dependency>        
+        </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -138,27 +145,42 @@
 
         <!-- Causes CacheException -->
         <!--<dependency>-->
-            <!--<groupId>org.hibernate</groupId>-->
-            <!--<artifactId>hibernate-infinispan</artifactId>-->
-            <!--<version>${hibernate.core.version}</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>jgroups</groupId>-->
-                    <!--<artifactId>jgroups</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
+        <!--<groupId>org.hibernate</groupId>-->
+        <!--<artifactId>hibernate-infinispan</artifactId>-->
+        <!--<version>${hibernate.core.version}</version>-->
+        <!--<exclusions>-->
+        <!--<exclusion>-->
+        <!--<groupId>jgroups</groupId>-->
+        <!--<artifactId>jgroups</artifactId>-->
+        <!--</exclusion>-->
+        <!--</exclusions>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>jgroups</groupId>-->
-            <!--<artifactId>jgroups</artifactId>-->
-            <!--<version>2.8.0.GA</version>-->
+        <!--<groupId>jgroups</groupId>-->
+        <!--<artifactId>jgroups</artifactId>-->
+        <!--<version>2.8.0.GA</version>-->
         <!--</dependency>-->
-        
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-envers</artifactId>
             <version>${hibernate.envers.version}</version>
+        </dependency>
+
+        <!-- Bean Validation API and RI -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.0.2.GA</version>
+            <!--<scope>runtime</scope>-->
         </dependency>
 
         <!-- MYSQL DEPENDENCY -->
@@ -308,23 +330,23 @@
             </plugin>
 
             <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>javadoc</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<aggregate>true</aggregate>-->
-                            <!--<links>-->
-                                <!--<link>http://java.sun.com/j2se/1.5.0/docs/api/</link>-->
-                                <!--<link>http://java.sun.com/javaee/5/docs/api/</link>-->
-                            <!--</links>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+            <!--<goal>javadoc</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<aggregate>true</aggregate>-->
+            <!--<links>-->
+            <!--<link>http://java.sun.com/j2se/1.5.0/docs/api/</link>-->
+            <!--<link>http://java.sun.com/javaee/5/docs/api/</link>-->
+            <!--</links>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--</executions>-->
             <!--</plugin>-->
         </plugins>
 
@@ -338,15 +360,20 @@
 
     <repositories>
         <repository>
-            <id>repository.jboss.org</id>
-            <name>JBoss Release Repository</name>
+            <id>jboss</id>
             <url>http://repository.jboss.com/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>sourceforge-releases</id>
             <name>Sourceforge Release Repository</name>
             <url>http://oss.sonatype.org/content/repositories/sourceforge-releases/</url>
-        </repository>        
+        </repository>
         <repository>
             <id>snapshots.jboss.org</id>
             <name>JBoss Snapshot Repository</name>
@@ -373,14 +400,14 @@
             <name>Sourceforge Snapshot Repository</name>
             <url>http://oss.sonatype.org/content/repositories/sourceforge-snapshots</url>
         </repository>
-       <repository>
-          <id>apache-snapshots</id>
-          <name>Apache SNAPSHOT Repository</name>
-          <url>http://repository.apache.org/snapshots/</url>
-          <snapshots>
-             <enabled>true</enabled>
-          </snapshots>
-       </repository>
+        <repository>
+            <id>apache-snapshots</id>
+            <name>Apache SNAPSHOT Repository</name>
+            <url>http://repository.apache.org/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>Codehaus Snapshots</id>
             <url>http://snapshots.repository.codehaus.org/</url>

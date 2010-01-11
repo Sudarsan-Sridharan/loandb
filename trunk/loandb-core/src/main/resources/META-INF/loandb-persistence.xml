@@ -18,6 +18,17 @@
                       value="org.hibernate.envers.event.AuditEventListener"/>
             <property name="org.hibernate.envers.auditTableSuffix"
                       value="_AUDIT"/>
+            <!-- Standardizes in JPA 2.0-->
+            <!--<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>-->
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:testDB;create=true"/>-->
+            <!--<property name="javax.persistence.jdbc.user" value="loandb"/>-->
+            <!--<property name="javax.persistence.jdbc.password" value="loandb"/>-->
+            <!--<property name="javax.persistence.validation.group.pre-persist" value=""/>-->
+            <!--<property name="javax.persistence.validation.group.pre-update" value=""/>-->
+            <!-- This property ensures that validation group is triggered on delete. -->
+            <property name="javax.persistence.validation.group.pre-remove" value="org.loandb.persistence.model.DeletionAttributes"/>
         </properties>
+        <!--Disable Validation-->
+        <!--<validation-mode>NONE</validation-mode>-->
     </persistence-unit>
 </persistence>

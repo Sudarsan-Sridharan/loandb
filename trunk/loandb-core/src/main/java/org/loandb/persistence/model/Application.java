@@ -4,6 +4,7 @@ import org.hibernate.envers.Audited;
 import org.loandb.persistence.types.LoanType;
 
 import javax.persistence.*;
+import javax.validation.constraints.AssertTrue;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
@@ -51,6 +52,13 @@ public class Application extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "DECISION_ID")
     private Decision decision;
+
+    /**
+     * Applications should never get deleted from the Loan system. If the loan product is no longer active,
+     * they should be archived for future use.
+     */
+    @AssertTrue(groups = DeletionAttributes.class)
+    private boolean archived;
 
     public Double getLoanAmount() {
         return loanAmount;
@@ -115,4 +123,13 @@ public class Application extends BaseEntity {
     public void setSubmitDate(Date submitDate) {
         this.submitDate = submitDate;
     }
+
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+    
 }
