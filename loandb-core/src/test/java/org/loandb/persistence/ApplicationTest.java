@@ -1,9 +1,11 @@
 package org.loandb.persistence;
 
+import org.junit.Test;
 import org.loandb.persistence.model.Address;
 import org.loandb.persistence.model.Applicant;
 import org.loandb.persistence.model.Application;
 import org.loandb.persistence.types.*;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.util.StopWatch;
 
 import java.text.DateFormat;
@@ -13,15 +15,19 @@ import java.util.Date;
 import java.util.EnumSet;
 import java.util.Random;
 
+import static junit.framework.Assert.assertEquals;
+
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
  *
  * @author <a href="mailto:aruld@acm.org">Arulazi Dhesiaseelan</a>
  * @since Jan 11, 2009
  */
-public class ApplicationTest extends AbstractSpringTest {
+public class ApplicationTest extends AbstractTest {
 
-    public void testSave() {
+    @Test
+    @Rollback(false)
+    public void saveApp() {
         applicationService.clear();
         assertEquals(0, applicationService.getAll().size());
         for (int i = 0; i < 100; i++) {
@@ -36,7 +42,9 @@ public class ApplicationTest extends AbstractSpringTest {
         assertEquals(100, applicationService.getAll().size());
     }
 
-    public void testGet() {
+    @Test
+    @Rollback(false)
+    public void getApp() {
         StopWatch watch = new StopWatch("testApplicationLoad");
         for (int i = 0; i < 5; i++) {
             watch.start();

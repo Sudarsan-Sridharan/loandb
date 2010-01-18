@@ -6,12 +6,8 @@ import org.loandb.persistence.service.CreditService;
 import org.loandb.persistence.service.DecisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,12 +21,7 @@ import javax.persistence.PersistenceUnit;
  * @since Jan 4, 2009
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@Transactional
-@TransactionConfiguration(transactionManager = "transactionManager")
-@TestExecutionListeners({TransactionalTestExecutionListener.class})
-@ContextConfiguration(locations = {"classpath:/spring/spring-config.xml",
-        "classpath:/spring/spring-jpa-config.xml",
-        "classpath:/spring/spring-resources.xml"})
+@ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
 public abstract class AbstractTest extends AbstractTransactionalJUnit4SpringContextTests {
     @PersistenceContext
     protected EntityManager entityManager;

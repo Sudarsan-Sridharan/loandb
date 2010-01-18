@@ -2,15 +2,20 @@ package org.loandb.persistence;
 
 import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
+import org.junit.Test;
 import org.loandb.persistence.model.Address;
 import org.loandb.persistence.model.Applicant;
 import org.loandb.persistence.model.Application;
 import org.loandb.persistence.types.*;
+import org.springframework.test.annotation.Rollback;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -18,8 +23,10 @@ import java.util.Date;
  * @author <a href="mailto:aruld@acm.org">Arulazi Dhesiaseelan</a>
  * @since Jan 14, 2009
  */
-public class ApplicationRevisionTest extends AbstractSpringTest {
-    public void testSave() {
+public class ApplicationRevisionTest extends AbstractTest {
+    @Test
+    @Rollback(false)
+    public void save() {
         Application application = new Application();
         application.addApplicant(applicant());
         application.setSubmitDate(new Date());
@@ -30,34 +37,40 @@ public class ApplicationRevisionTest extends AbstractSpringTest {
         assertNotNull(applicationService.getAll().get(0));
     }
 
-    public void testUpdateLoanAmount() {
+    @Test
+    @Rollback(false)
+    public void updateLoanAmount() {
         Application application = applicationService.getAll().get(0);
         assertNotNull(application);
         application.setLoanAmount(200000.00);
         applicationService.updateApp(application);
     }
 
-    public void testUpdateLoanType() {
+    @Test
+    @Rollback(false)
+    public void updateLoanType() {
         Application application = applicationService.getAll().get(0);
         assertNotNull(application);
         application.setLoanType(LoanType.FIXED);
         applicationService.updateApp(application);
     }
 
-    public void testRevision() {
+    @Test
+    @Rollback(false)
+    public void revision() {
         Application application = applicationService.getAll().get(0);
         assertNotNull(application);
         AuditReader reader = AuditReaderFactory.get(entityManager);
         Application application1_rev1 = reader.find(Application.class, application.getId(), 1);
-        assertEquals(150000.00, application1_rev1.getLoanAmount());
+        assertEquals(new Double(150000.00), application1_rev1.getLoanAmount());
         assertEquals(LoanType.ADJUSTABLE, application1_rev1.getLoanType());
 
         Application application1_rev2 = reader.find(Application.class, application.getId(), 2);
-        assertEquals(200000.00, application1_rev2.getLoanAmount());
+        assertEquals(new Double(200000.00), application1_rev2.getLoanAmount());
         assertEquals(LoanType.ADJUSTABLE, application1_rev2.getLoanType());
 
         Application application1_rev3 = reader.find(Application.class, application.getId(), 3);
-        assertEquals(200000.00, application1_rev3.getLoanAmount());
+        assertEquals(new Double(200000.00), application1_rev3.getLoanAmount());
         assertEquals(LoanType.FIXED, application1_rev3.getLoanType());
     }
 
@@ -86,7 +99,7 @@ public class ApplicationRevisionTest extends AbstractSpringTest {
             e.printStackTrace();
         }
         applicant.setPhoneNumber("123-456-7890");
-        applicant.setPhoneType(PhoneType.HOME);        
+        applicant.setPhoneType(PhoneType.HOME);
         return applicant;
     }
 
