@@ -1,7 +1,5 @@
 package org.loandb.persistence;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 import org.loandb.persistence.model.*;
 import org.loandb.persistence.types.*;
@@ -11,6 +9,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -23,6 +23,7 @@ public class CrudTest extends AbstractTest {
     @Test
     @Rollback(false)
     public void testCRUD() {
+        applicationService.clear();
         Address residentialAddress1 = new Address();
         residentialAddress1.setAddressLine1("4209 Van Buren Dr");
         residentialAddress1.setAddressLine2("Apt # 158");
@@ -176,7 +177,7 @@ public class CrudTest extends AbstractTest {
             e.printStackTrace();
         }
         applicant3.setPhoneNumber("123-456-7890");
-        applicant3.setPhoneType(PhoneType.HOME);        
+        applicant3.setPhoneType(PhoneType.HOME);
 
         Application application1 = new Application();
         application1.addApplicant(applicant1);
