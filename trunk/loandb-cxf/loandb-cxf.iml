@@ -62,7 +62,7 @@
     <orderEntry type="library" exported="" name="Maven: jaxen:jaxen:1.1.1" level="project" />
     <orderEntry type="library" exported="" name="Maven: org.apache.abdera:abdera-extensions-json:0.4.0-incubating" level="project" />
     <orderEntry type="library" exported="" name="Maven: org.apache.abdera:abdera-extensions-main:0.4.0-incubating" level="project" />
-    <orderEntry type="library" exported="" name="Maven: org.codehaus.jettison:jettison:1.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.codehaus.jettison:jettison:1.2" level="project" />
     <orderEntry type="library" exported="" name="Maven: org.apache.xmlbeans:xmlbeans:2.4.0" level="project" />
     <orderEntry type="library" exported="" name="Maven: org.apache.cxf:cxf-rt-ws-security:2.3.0-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="Maven: org.apache.ws.security:wss4j:1.5.8" level="project" />
@@ -95,7 +95,7 @@
     <orderEntry type="library" exported="" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
     <orderEntry type="library" exported="" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" exported="" name="Maven: mysql:mysql-connector-java:5.1.10" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:1.2.126" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Maven: com.h2database:h2:1.2.126" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.7" level="project" />
     <orderEntry type="library" exported="" name="Maven: ch.qos.logback:logback-classic:0.9.14" level="project" />
     <orderEntry type="library" exported="" name="Maven: ch.qos.logback:logback-core:0.9.14" level="project" />
