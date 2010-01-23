@@ -5,9 +5,7 @@ import org.loandb.persistence.AbstractTest;
 import org.loandb.persistence.model.Address;
 import org.loandb.persistence.model.Applicant;
 import org.loandb.persistence.model.Application;
-import org.loandb.persistence.types.AddressType;
-import org.loandb.persistence.types.ApplicantRole;
-import org.loandb.persistence.types.LoanType;
+import org.loandb.persistence.types.*;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.util.StopWatch;
 
@@ -34,6 +32,8 @@ public class DummyTest extends AbstractTest {
     @Test
     @Rollback(false)
     public void saveApp() {
+        applicationService.clear();
+        assertEquals(0, applicationService.getAll().size());
         for (int i = 0; i < 100; i++) {
             Application application = new Application();
             application.addApplicant(applicant());
@@ -43,6 +43,7 @@ public class DummyTest extends AbstractTest {
             application.setPropertyAddress(propertyAddress());
             applicationService.createApp(application);
         }
+        assertEquals(100, applicationService.getAll().size());
     }
 
     @Test
@@ -69,6 +70,19 @@ public class DummyTest extends AbstractTest {
         applicant.setSsn("000-00-0001");
         applicant.setFirstName("KEN");
         applicant.setLastName("CUSTOMER");
+        applicant.setEmailAddress("ken@customer.com");
+        applicant.setGenderType(GenderType.MALE);
+        applicant.setIdentificationNumber("1234567890");
+        applicant.setIdentificationAuthority("DOT");
+        applicant.setIdentificationType(IdentificationType.LICENSE);
+        try {
+            applicant.setIdentificationIssueDate(dateFormat.parse("07/11/2007"));
+            applicant.setIdentificationExpirationDate(dateFormat.parse("07/11/2012"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        applicant.setPhoneNumber("123-456-7890");
+        applicant.setPhoneType(PhoneType.HOME);
         applicant.setResidentialAddress(residentialAddress());
         return applicant;
     }
@@ -104,4 +118,3 @@ public class DummyTest extends AbstractTest {
     }
 
 }
-

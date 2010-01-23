@@ -24,6 +24,7 @@ public abstract class GenericDaoJpa<T, PK extends Serializable> implements Gener
         this.persistentClass = persistentClass;
     }
 
+    @SuppressWarnings(value = "unchecked")
     public List<T> getAll() {
         return this.entityManager.createQuery(
                 "select entity from " + this.persistentClass.getName() + " entity")
