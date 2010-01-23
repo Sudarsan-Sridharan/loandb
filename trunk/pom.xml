@@ -82,7 +82,6 @@
 
     <modules>
         <module>loandb-core</module>
-        <module>loandb-axis2</module>
         <module>loandb-jersey</module>
         <module>loandb-cxf</module>
         <module>entity-pruner</module>

@@ -202,7 +202,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/entity-pruner/entity-pruner.iml" filepath="$PROJECT_DIR$/entity-pruner/entity-pruner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/loandb-axis2/loandb-axis2.iml" filepath="$PROJECT_DIR$/loandb-axis2/loandb-axis2.iml" />
       <module fileurl="file://$PROJECT_DIR$/loandb-base.iml" filepath="$PROJECT_DIR$/loandb-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/loandb-core/loandb-core.iml" filepath="$PROJECT_DIR$/loandb-core/loandb-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/loandb-cxf/loandb-cxf.iml" filepath="$PROJECT_DIR$/loandb-cxf/loandb-cxf.iml" />
@@ -329,17 +328,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/dom4j/dom4j/1.6.1/dom4j-1.6.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: xml-apis:xml-apis:1.3.04">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: javax.transaction:jta:1.1">
@@ -837,50 +825,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/commons-pool/commons-pool/1.3/commons-pool-1.3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.apache.woden:woden-api:1.0M8">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/woden/woden-api/1.0M8/woden-api-1.0M8.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/woden/woden-api/1.0M8/woden-api-1.0M8-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/woden/woden-api/1.0M8/woden-api-1.0M8-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.ws.commons.schema:XmlSchema:1.4.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/schema/XmlSchema/1.4.2/XmlSchema-1.4.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/schema/XmlSchema/1.4.2/XmlSchema-1.4.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/schema/XmlSchema/1.4.2/XmlSchema-1.4.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.ant:ant:1.7.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ant/ant/1.7.0/ant-1.7.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ant/ant/1.7.0/ant-1.7.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ant/ant/1.7.0/ant-1.7.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.ant:ant-launcher:1.7.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ant/ant-launcher/1.7.0/ant-launcher-1.7.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ant/ant-launcher/1.7.0/ant-launcher-1.7.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ant/ant-launcher/1.7.0/ant-launcher-1.7.0-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: wsdl4j:wsdl4j:1.6.2">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/wsdl4j/wsdl4j/1.6.2/wsdl4j-1.6.2.jar!/" />
@@ -890,61 +834,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/wsdl4j/wsdl4j/1.6.2/wsdl4j-1.6.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: xerces:xercesImpl:2.8.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: xerces:xmlParserAPIs:2.6.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/xerces/xmlParserAPIs/2.6.0/xmlParserAPIs-2.6.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/xerces/xmlParserAPIs/2.6.0/xmlParserAPIs-2.6.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/xerces/xmlParserAPIs/2.6.0/xmlParserAPIs-2.6.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.ws.commons.axiom:axiom-api:1.2.8">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-api/1.2.8/axiom-api-1.2.8.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-api/1.2.8/axiom-api-1.2.8-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-api/1.2.8/axiom-api-1.2.8-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.geronimo.specs:geronimo-activation_1.1_spec:1.0.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.0.1/geronimo-activation_1.1_spec-1.0.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.0.1/geronimo-activation_1.1_spec-1.0.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.0.1/geronimo-activation_1.1_spec-1.0.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.2/geronimo-javamail_1.4_spec-1.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.2/geronimo-javamail_1.4_spec-1.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.2/geronimo-javamail_1.4_spec-1.2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: jaxen:jaxen:1.1.1">
@@ -969,72 +858,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-stax-api_1.0_spec/1.0.1/geronimo-stax-api_1.0_spec-1.0.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.apache.ws.commons.axiom:axiom-impl:1.2.8">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-impl/1.2.8/axiom-impl-1.2.8.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-impl/1.2.8/axiom-impl-1.2.8-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-impl/1.2.8/axiom-impl-1.2.8-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.codehaus.woodstox:wstx-asl:3.2.4">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/wstx-asl/3.2.4/wstx-asl-3.2.4.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/wstx-asl/3.2.4/wstx-asl-3.2.4-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/wstx-asl/3.2.4/wstx-asl-3.2.4-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.axis2:axis2:1.5.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2/1.5.1/axis2-1.5.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2/1.5.1/axis2-1.5.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2/1.5.1/axis2-1.5.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.axis2:axis2-transport-http:1.5.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-transport-http/1.5.1/axis2-transport-http-1.5.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-transport-http/1.5.1/axis2-transport-http-1.5.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-transport-http/1.5.1/axis2-transport-http-1.5.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.axis2:axis2-kernel:1.5.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-kernel/1.5.1/axis2-kernel-1.5.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-kernel/1.5.1/axis2-kernel-1.5.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-kernel/1.5.1/axis2-kernel-1.5.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.ws.commons.axiom:axiom-dom:1.2.8">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-dom/1.2.8/axiom-dom-1.2.8.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-dom/1.2.8/axiom-dom-1.2.8-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/commons/axiom/axiom-dom/1.2.8/axiom-dom-1.2.8-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.apache.geronimo.specs:geronimo-ws-metadata_2.0_spec:1.1.2">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-ws-metadata_2.0_spec/1.1.2/geronimo-ws-metadata_2.0_spec-1.1.2.jar!/" />
@@ -1046,61 +869,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-ws-metadata_2.0_spec/1.1.2/geronimo-ws-metadata_2.0_spec-1.1.2-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1/geronimo-jta_1.1_spec-1.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1/geronimo-jta_1.1_spec-1.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1/geronimo-jta_1.1_spec-1.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: javax.servlet:servlet-api:2.3">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: commons-httpclient:commons-httpclient:3.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: commons-codec:commons-codec:1.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.2/commons-codec-1.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.2/commons-codec-1.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.2/commons-codec-1.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: commons-fileupload:commons-fileupload:1.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.apache.neethi:neethi:2.0.4">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/neethi/neethi/2.0.4/neethi-2.0.4.jar!/" />
@@ -1110,94 +878,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/neethi/neethi/2.0.4/neethi-2.0.4-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.woden:woden-impl-dom:1.0M8">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/woden/woden-impl-dom/1.0M8/woden-impl-dom-1.0M8.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/woden/woden-impl-dom/1.0M8/woden-impl-dom-1.0M8-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/woden/woden-impl-dom/1.0M8/woden-impl-dom-1.0M8-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: xalan:xalan:2.7.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/xalan/xalan/2.7.0/xalan-2.7.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/xalan/xalan/2.7.0/xalan-2.7.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/xalan/xalan/2.7.0/xalan-2.7.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: commons-io:commons-io:1.4">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/1.4/commons-io-1.4.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/1.4/commons-io-1.4-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/1.4/commons-io-1.4-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.httpcomponents:httpcore:4.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.0/httpcore-4.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.0/httpcore-4.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.0/httpcore-4.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.axis2:axis2-transport-local:1.5.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-transport-local/1.5.1/axis2-transport-local-1.5.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-transport-local/1.5.1/axis2-transport-local-1.5.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-transport-local/1.5.1/axis2-transport-local-1.5.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.axis2:axis2-spring:1.5.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-spring/1.5.1/axis2-spring-1.5.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-spring/1.5.1/axis2-spring-1.5.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis2/axis2-spring/1.5.1/axis2-spring-1.5.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: cglib:cglib-nodep:2.1_3">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: annogen:annogen:0.1.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/annogen/annogen/0.1.0/annogen-0.1.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/annogen/annogen/0.1.0/annogen-0.1.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/annogen/annogen/0.1.0/annogen-0.1.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: junit:junit:4.7">
