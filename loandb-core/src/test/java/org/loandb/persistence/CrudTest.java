@@ -195,7 +195,7 @@ public class CrudTest extends AbstractTest {
         application2.setLoanType(LoanType.ADJUSTABLE);
         application2.setPropertyAddress(propertyAddress2);
         applicationService.createApp(application2);
-        assertEquals(2, application2.getApplicants().size());
+        assertEquals(2, application2.getApplicant().size());
 
         Application application3 = new Application();
         application3.addApplicant(applicant3);

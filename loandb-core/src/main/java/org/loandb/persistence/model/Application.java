@@ -5,6 +5,8 @@ import org.loandb.persistence.types.LoanType;
 
 import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
@@ -47,7 +49,8 @@ public class Application extends BaseEntity {
     //    @OneToMany(mappedBy = "application", fetch = FetchType.EAGER)
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "APPLICATION_ID", nullable = false)
-    private Set<Applicant> applicants = new HashSet<Applicant>();
+    @XmlTransient
+    private Set<Applicant> applicant = new HashSet<Applicant>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "DECISION_ID")
@@ -55,7 +58,7 @@ public class Application extends BaseEntity {
 
     /**
      * Applications should never get deleted from the Loan system. If the loan product is no longer active,
-     * they should be archived for future use.
+     * they should be archived for future reference.
      */
     @AssertTrue(groups = DeletionAttributes.class)
     private boolean archived;
@@ -84,22 +87,24 @@ public class Application extends BaseEntity {
         this.propertyAddress = propertyAddress;
     }
 
-    public Set<Applicant> getApplicants() {
-        return applicants;
+    @XmlElement
+    @XmlElementWrapper(name = "applicants")
+    public Set<Applicant> getApplicant() {
+        return applicant;
     }
 
-    public void setApplicants(Set<Applicant> applicants) {
-        this.applicants = applicants;
+    public void setApplicant(Set<Applicant> applicants) {
+        this.applicant = applicants;
     }
 
     public Applicant addApplicant(Applicant applicant) {
-        getApplicants().add(applicant);
+        getApplicant().add(applicant);
         applicant.setApplication(this);
         return applicant;
     }
 
     public Applicant removeApplicant(Applicant applicant) {
-        getApplicants().remove(applicant);
+        getApplicant().remove(applicant);
         applicant.setApplication(null);
         return applicant;
     }
@@ -131,5 +136,5 @@ public class Application extends BaseEntity {
     public void setArchived(boolean archived) {
         this.archived = archived;
     }
-    
+
 }
