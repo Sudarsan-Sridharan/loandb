@@ -3,12 +3,11 @@ package org.loandb.persistence.model;
 import org.hibernate.envers.Audited;
 import org.loandb.persistence.types.AddressType;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * LoanDB project (http://code.google.com/p/loandb/)
@@ -36,9 +35,9 @@ public class Address extends BaseEntity {
     @Column(name = "STATE", nullable = false)
     private String stateCode;
 
-    @OneToOne(mappedBy = "residentialAddress")
+    @OneToMany(cascade = CascadeType.ALL)
     @XmlTransient
-    private Applicant applicant;
+    private Set<Applicant> applicants = new HashSet<Applicant>();
 
     @OneToOne(mappedBy = "propertyAddress")
     @XmlTransient
@@ -98,14 +97,6 @@ public class Address extends BaseEntity {
 
     public void setStateCode(String stateCode) {
         this.stateCode = stateCode;
-    }
-
-    public Applicant getApplicant() {
-        return applicant;
-    }
-
-    public void setApplicant(Applicant applicant) {
-        this.applicant = applicant;
     }
 
     public Application getApplication() {

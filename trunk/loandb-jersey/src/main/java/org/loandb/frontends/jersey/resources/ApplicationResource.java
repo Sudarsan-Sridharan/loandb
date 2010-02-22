@@ -1,7 +1,6 @@
 package org.loandb.frontends.jersey.resources;
 
 import com.sun.jersey.api.NotFoundException;
-import com.saliman.entitypruner.EntityPrunerHibernateJpa;
 import org.loandb.persistence.model.Application;
 import org.loandb.persistence.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +37,6 @@ public class ApplicationResource {
         if (application == null) {
             throw new NotFoundException("Application not found for id : " + appid);
         }
-        EntityPrunerHibernateJpa pruner = new EntityPrunerHibernateJpa();
-        pruner.prune(application, 2);
         return application;
     }
 

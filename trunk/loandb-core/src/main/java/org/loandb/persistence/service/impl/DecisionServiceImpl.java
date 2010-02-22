@@ -42,7 +42,7 @@ public class DecisionServiceImpl implements DecisionService {
         Set<Long> approvedBorrowers = new HashSet<Long>();
         Set<Long> declinedBorrowers = new HashSet<Long>();
         Set<Long> referredBorrowers = new HashSet<Long>();
-        for (Applicant applicant : app.getApplicants()) {
+        for (Applicant applicant : app.getApplicant()) {
             int score = applicant.getCbrSummary().getCreditScore();
             //simple logic to determine decision type
             //TODO add more business rules

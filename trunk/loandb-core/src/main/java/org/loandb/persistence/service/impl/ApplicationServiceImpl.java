@@ -1,5 +1,7 @@
 package org.loandb.persistence.service.impl;
 
+import com.saliman.entitypruner.EntityPrunerHibernateJpa;
+import com.saliman.entitypruner.EntityUtil;
 import org.loandb.persistence.dao.ApplicantDao;
 import org.loandb.persistence.dao.ApplicationDao;
 import org.loandb.persistence.model.Applicant;
@@ -44,7 +46,13 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     public Application getApp(Long id) {
         LOG.debug("retrieving application id {} " + id);
-        return applicationDao.get(id);
+        Application application = applicationDao.get(id);
+        EntityPrunerHibernateJpa pruner = new EntityPrunerHibernateJpa();
+        //specifying depth 3 in order to load grand-children
+        // of Application, for ex: Address of an Applicant
+        EntityUtil.populateToDepth(application, 3);
+        pruner.prune(application);
+        return application;
     }
 
     public void deleteApp(Long id) {

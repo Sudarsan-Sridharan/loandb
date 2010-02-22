@@ -58,9 +58,8 @@
     <properties>
         <cxf.version>2.3.0-SNAPSHOT</cxf.version>
         <jersey.version>1.1.5</jersey.version>
-        <spring.version>3.0.0.RELEASE</spring.version>
-        <hibernate.core.version>3.5.0-Beta-2</hibernate.core.version>
-        <hibernate.envers.version>3.5.0-Beta-2</hibernate.envers.version>
+        <spring.version>3.0.1.RELEASE</spring.version>
+        <hibernate.core.version>3.5.0-CR-1</hibernate.core.version>
         <slf4j.version>1.5.10</slf4j.version>
         <jaxb.version>2.1.12</jaxb.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -163,7 +162,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-envers</artifactId>
-            <version>${hibernate.envers.version}</version>
+            <version>${hibernate.core.version}</version>
         </dependency>
 
         <!-- Bean Validation API and RI -->
