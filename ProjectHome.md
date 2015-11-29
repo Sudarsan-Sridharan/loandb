@@ -1,0 +1,6 @@
+# LoanDB - loan originations system reference implementation #
+Welcome to the LoanDB project!
+
+LoanDB is a loan originations system reference implementation using various Java and JEE technologies. This project is take2 on my original implementation from the [loan processing tutorial](http://wiki.netbeans.org/ApacheCXFonNetBeans). The tutorial was  primarily exhibiting the use JPA and web services technology based application development. Only the concepts will be derived from the tutorial and this implementation is completely redesigned using various Java technologies. As the project summary states, this would truly evolve as a reference implementation. The rationale behind this project is to develop a JEE blueprint for a loan processing system using various Java technology frameworks such as Spring (CDI), Hibernate (JPA), CXF (JAXWS, JAXRS), Jersey (JAXRS).
+
+This project aims to showcase various frameworks mentioned above and use of these frameworks in a complex loan processing environment, and how these frameworks can ease integration pains and finally help developers understand how these frameworks can solve problems in real world applications, not necessarily loan originations.
